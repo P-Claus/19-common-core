@@ -2,7 +2,7 @@
 An overview of the different project in the common core at Campus 19 (42).
 
 ## PROJECTS
-<div align="center">
+<div>
 
 | Project | Language | Grade | Last Commit |
 | :--- | :--- | :--- | :--- |
