@@ -1,4 +1,6 @@
 # Campus 19 Common Core
+![common-core-header](https://github.com/P-Claus/19-common-core/blob/main/common-core-header.png)
+
 An overview of the different projects in the common core at Campus 19 (42).
 
 ## PROJECTS
