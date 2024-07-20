@@ -12,12 +12,12 @@ An overview of the different projects in the common core at Campus 19 (42).
 | [ft_printf](https://github.com/P-Claus/ft_printf) | <img src="https://img.shields.io/github/languages/top/P-Claus/ft_printf?" /> | <img src="https://img.shields.io/badge/100%20%2F%20100%20-success" />
 |Borntoberoot |  | <img src="https://img.shields.io/badge/115%20%2F%20100%20-success" /> 
 | [get_next_line](https://github.com/P-Claus/get_next_line) | <img src="https://img.shields.io/github/languages/top/P-Claus/get_next_line?" /> | <img src="https://img.shields.io/badge/125%20%2F%20100%20-success" />
-| [minitalk](https://github.com/P-Claus/minitalk) | <img src="https://img.shields.io/github/languages/top/P-Claus/minitalk?" /> | <img src="https://img.shields.io/badge/ongoing-orange" />
-| push_swap | <img src="#" /> | <img src="https://img.shields.io/badge/ongoing-orange" />
-| fdf | <img src="#" /> | <img src="https://img.shields.io/badge/ongoing-orange" />
+| [minitalk](https://github.com/P-Claus/minitalk) | <img src="https://img.shields.io/github/languages/top/P-Claus/minitalk?" /> | <img src="https://img.shields.io/badge/125%20%2F%20100%20-success" />
+| push_swap | <img src="#" /> | <img src="https://img.shields.io/badge/100%20%2F%20100%20-success" />
+| fdf | <img src="#" /> | <img src="https://img.shields.io/badge/101%20%2F%20100%20-success" />
 | philosophers | <img src="#" /> | <img src="https://img.shields.io/badge/ongoing-orange" />
 | minishell | <img src="#" /> | <img src="https://img.shields.io/badge/ongoing-orange" />
-| netpractice | <img src="#" /> | <img src="https://img.shields.io/badge/ongoing-orange" />
+| netpractice | <img src="#" /> | <img src="https://img.shields.io/badge/not_started-red" />
 | cub3d | <img src="#" /> | <img src="https://img.shields.io/badge/not_started-red" />
 
 
