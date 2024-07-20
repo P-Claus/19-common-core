@@ -13,7 +13,12 @@ An overview of the different projects in the common core at Campus 19 (42).
 |Borntoberoot |  | <img src="https://img.shields.io/badge/115%20%2F%20100%20-success" /> 
 | [get_next_line](https://github.com/P-Claus/get_next_line) | <img src="https://img.shields.io/github/languages/top/P-Claus/get_next_line?" /> | <img src="https://img.shields.io/badge/125%20%2F%20100%20-success" />
 | [minitalk](https://github.com/P-Claus/minitalk) | <img src="https://img.shields.io/github/languages/top/P-Claus/minitalk?" /> | <img src="https://img.shields.io/badge/ongoing-orange" />
-| [push_swap] | <img src="#" /> | <img src="https://img.shields.io/badge/ongoing-orange" />
+| push_swap | <img src="#" /> | <img src="https://img.shields.io/badge/ongoing-orange" />
+| fdf | <img src="#" /> | <img src="https://img.shields.io/badge/ongoing-orange" />
+| philosophers | <img src="#" /> | <img src="https://img.shields.io/badge/ongoing-orange" />
+| minishell | <img src="#" /> | <img src="https://img.shields.io/badge/ongoing-orange" />
+| netpractice | <img src="#" /> | <img src="https://img.shields.io/badge/ongoing-orange" />
+| cub3d | <img src="#" /> | <img src="https://img.shields.io/badge/not_started-red" />
 
 
 
