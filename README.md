@@ -15,6 +15,8 @@ An overview of the different projects in the common core at Campus 19 (42).
 | [minitalk](https://github.com/P-Claus/minitalk) | <img src="https://img.shields.io/github/languages/top/P-Claus/minitalk?" /> | <img src="https://img.shields.io/badge/ongoing-orange" />
 
 
+| [push_swap] | <img src="#" /> | <img src="https://img.shields.io/badge/ongoing-orange" />
+
 
 </div>
 
