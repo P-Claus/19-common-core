@@ -1,8 +1,8 @@
 #############################################
-###		 CONFIG		          ###
+###		 			CONFIG		          ###
 #############################################
 
-NAME			= phonebook
+NAME			= phonebook 
 
 CC				= c++
 RM				= rm -rf
@@ -10,47 +10,29 @@ CFLAGS			= -Wall -Werror -Wextra -std=c++98
 
 MKDIR			= mkdir -p
 
-SOURCE_FILE		= main.cpp
-OBJ_FILES		= main.o
+SOURCE_FILE		= phonebook.cpp 
+OBJ_FILES		= phonebook.o
 
 #############################################
-###		COLORS			  ###
-#############################################
-
-RED			= \033[0;31m
-GREEN			= \033[0;32m
-YELLOW			= \033[0;33m
-BLUE			= \033[0;34m
-MAGENTA			= \033[0;35m
-CYAN			= \033[0;36m
-RESET_COLOR		= \033[0m
-MOVEUP			= \033[F
-RESET			= \e[2K\r
-
-#############################################
-###		RULES	      		  ###
+###					RULES	      		  ###
 #############################################
 
 all: $(NAME)
 
 $(NAME): $(OBJ_FILES)
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ_FILES)
-	@echo "$(GREEN)Compiled phonebook$(RESET_COLOR)"
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ_FILES)
 
 $(OBJ_FILES): $(SOURCE_FILE)
-	@$(CC) $(CFLAGS) -c $< -o $@ 
-
+	$(CC) $(CFLAGS) -c $< -o $@ 
 
 clean:
-	@$(RM) $(OBJ_FILES)
-	@echo "$(GREEN)Removed the object files$(RESET_COLOR)"
+	$(RM) $(OBJ_FILES)
 
 fclean: clean
-	@$(RM) $(NAME)
-	@echo "$(GREEN)Removed the executable$(RESET_COLOR)"
+	$(RM) $(NAME)
 
 re:
-	@make -s fclean
-	@make -s
+	make -s fclean
+	make -s
 
 .PHONY:	all clean fclean re
