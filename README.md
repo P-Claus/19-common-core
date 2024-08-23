@@ -17,7 +17,7 @@ An overview of the different projects in the common core at Campus 19 (42).
 | fdf | <img src="#" /> | <img src="https://img.shields.io/badge/101%20%2F%20100%20-success" />
 | philosophers | <img src="#" /> | <img src="https://img.shields.io/badge/ongoing-orange" />
 | minishell | <img src="#" /> | <img src="https://img.shields.io/badge/ongoing-orange" />
-| netpractice | <img src="#" /> | <img src="https://img.shields.io/badge/not_started-red" />
+| netpractice | <img src="#" /> | <img src="https://img.shields.io/badge/100%20%2F%20100%20-success" />
 | cub3d | <img src="#" /> | <img src="https://img.shields.io/badge/not_started-red" />
 
 
