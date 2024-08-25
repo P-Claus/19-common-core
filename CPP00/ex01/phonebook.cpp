@@ -28,14 +28,35 @@ void	display_prompt(std::string *answer)
 	std::cout << *answer << std::endl;
 }
 
-void	add_contact(PhoneBook *phonebook)
+void	add_contact(Contact *contact, int *counter)
 {
-	(void)phonebook;
-	std::cout << "The contact wants to be added" << std::endl;
+	std::string firstName;
+	std::string lastName;
+	std::string nickName;
+	std::string phoneNumber;
+	std::string secret;
+
+	std::cout << "Enter the first name: ";
+	std::cin >> firstName;
+	std::cout << "Enter the last name: ";
+	std::cin >> lastName;
+	std::cout << "Enter the nickname: ";
+	std::cin >> nickName;
+	std::cout << "Enter the phone number: ";
+	std::cin >> phoneNumber;
+	std::cout << "Enter their darkest secret...: ";
+	std::cin >> secret;
+
+	contact->fill_contact((*counter)++, firstName, lastName, nickName, phoneNumber, secret);
 }
 
-int	evaluate_answer(PhoneBook *phonebook, std::string answer)
+int	evaluate_answer(PhoneBook *phonebook, std::string answer, int *index, int *counter)
 {
+	if (*index == 8)
+	{
+		*index = 0;
+		*counter = 1;
+	}
 	if (answer == "EXIT")
 	{
 		std::cout << "Ending the program and destroying all contacts forever..." << std::endl;
@@ -43,7 +64,15 @@ int	evaluate_answer(PhoneBook *phonebook, std::string answer)
 	}
 	if (answer == "ADD")
 	{
-		add_contact(phonebook);
+		add_contact(&phonebook->contact[(*index)++], counter++);
+		phonebook->contact[0].print_contact();
+		phonebook->contact[1].print_contact();
+		phonebook->contact[2].print_contact();
+		phonebook->contact[3].print_contact();
+		phonebook->contact[4].print_contact();
+		phonebook->contact[5].print_contact();
+		phonebook->contact[6].print_contact();
+		phonebook->contact[7].print_contact();
 	}
 	return (0);
 }
@@ -52,12 +81,14 @@ int	main(void)
 {
 	PhoneBook phonebook;
 	std::string answer;
+	int	counter = 1;
+	int	index = 0;
 
 	print_phonebook_header();
 	while (1)
 	{
 		display_prompt(&answer);
-		if (evaluate_answer(&phonebook, answer) == 1)
+		if (evaluate_answer(&phonebook, answer, &index, &counter) == 1)
 			break;
 	}
 
