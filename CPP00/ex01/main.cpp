@@ -62,7 +62,7 @@ int	main(void)
 
 	while (1)
 	{
-		else if (answer == "ADD")
+		if (answer == "ADD")
 			add_new_contact(phonebook.contact[index], &index, &counter, &print_counter);
 		else if (answer == "SEARCH")
 		{

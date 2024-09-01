@@ -1,7 +1,7 @@
 #ifndef CONTACT_HPP
-# define CONTACT_HPP
+#define CONTACT_HPP
 
-# include <iomanip>
+#include <iomanip>
 # include <iostream>
 # include <sstream>
 # include <string>
