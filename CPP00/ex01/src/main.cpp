@@ -1,5 +1,4 @@
-#include "Contact.hpp"
-#include "PhoneBook.hpp"
+#include "../includes/main.hpp"
 
 
 /*
@@ -15,7 +14,6 @@ bool	array_contains_value(Contact array[], int size, int value)
 	return (false);
 }
 
-*/
 void	add_new_contact(Contact *contact, int *index, int *counter, int *print_counter)
 {
 	std::string	firstName;
@@ -47,9 +45,32 @@ void	add_new_contact(Contact *contact, int *index, int *counter, int *print_coun
 		(*index)++;
 	}
 }
+*/
 
 int	main(void)
 {
+	PhoneBook phonebook;
+	std::string answer;
+	int	counter = 1;
+	int	index = 0;
+
+	phonebook.print_header();
+	while (answer != "EXIT")
+	{
+		phonebook.display_prompt(&answer);
+		if (phonebook.evaluate_answer(&phonebook, answer, &index, &counter) == 1)
+		break;
+	}
+	if (answer == "EXIT")
+	{
+		std::cout << "Ending the program and destroying all contacts forever..." << std::endl;
+		return (0);
+	}
+
+
+	return (0);
+}
+	/*
 	PhoneBook phonebook;
 	std::string answer;
 
@@ -63,9 +84,11 @@ int	main(void)
 	while (1)
 	{
 		if (answer == "ADD")
-			add_new_contact(phonebook.contact[index], &index, &counter, &print_counter);
+			//add_new_contact(phonebook.contact[index], &index, &counter, &print_counter);
+			std::cout << "ADD" << std::endl;
 		else if (answer == "SEARCH")
 		{
+			std::cout << "SEARCH" << std::endl;
 			while (1)
 			{
 
@@ -80,7 +103,6 @@ int	main(void)
 //			if (!array_contains_value(phonebook.contact, 7, search_index))
 //				std::cout << "Please choose an index that exists...";
 			}
-				
 
 		}
 		else if (answer != "EXIT" || answer != "ADD" || answer != "SEARCH")
@@ -95,3 +117,4 @@ int	main(void)
 
 	return 0;
 }
+*/		
