@@ -7,8 +7,6 @@ void	PhoneBook::print_contact_header(void)
 		"LASTNAME" << "|" << std::setw(10) << "NICKNAME" << std::endl;
 }
 
-
-
 void	PhoneBook::print_header(void)
 {
 	std::cout << std::endl;
@@ -37,48 +35,38 @@ void	PhoneBook::display_prompt(std::string *answer)
 
 void	PhoneBook::add_contact(Contact *contact, int *counter)
 {
-	std::string	input_data[6];
+	std::string	input_data[5];
+	int	new_index = (*counter)++;
 
-	input_data[0] = (*counter)++;
+	std::cin.ignore();
 	std::cout << "Enter the first name: ";
-	std::cin >> input_data[1];
+	getline(std::cin, input_data[0]);
 	std::cout << "Enter the last name: ";
-	std::cin >> input_data[2];
+	getline(std::cin, input_data[1]);
 	std::cout << "Enter the nickname: ";
-	std::cin >> input_data[3];
+	getline(std::cin, input_data[2]);
 	std::cout << "Enter the phone number: ";
-	std::cin >> input_data[4];
+	getline(std::cin, input_data[3]);
 	std::cout << "Enter their darkest secret...: ";
-	std::cin >> input_data[5];
+	getline(std::cin, input_data[4]);
 
-	contact->fill_contact(input_data);
+	contact->fill_contact(input_data, new_index);
 
 
 }
-/*
 void	PhoneBook::display_contacts(PhoneBook *phonebook)
 {
 	int index  = 0;
 	while (index < 8)
 	{
-		if (phonebook->contact[index].index != 0)
-			phonebook->contact[index].print_contacts();
+		phonebook->contact[index].print_contacts();
 		index++;
 	}
-
 }
 
-void	PhoneBook::display_contact_header()
+void	PhoneBook::evaluate_answer(PhoneBook *phonebook, std::string answer, int *index, int *counter)
 {
-	std::cout << std::endl;
-	std::cout << std::setw(10) << "Index" << "|" <<
-	std::setw(10) << "First name" << "|" << std::setw(10) <<
-	"Last name" << "|" << std::setw(10) << "Nick name" << std::endl;
-}
-*/
-int	PhoneBook::evaluate_answer(PhoneBook *phonebook, std::string answer, int *index, int *counter)
-{
-//	int	search_answer;
+	int	search_answer = 0;
 
 	if (*index == 8)
 	{
@@ -90,20 +78,21 @@ int	PhoneBook::evaluate_answer(PhoneBook *phonebook, std::string answer, int *in
 	if (answer == "SEARCH")
 	{
 		phonebook->print_contact_header();
-		std::cout << "ADD" << std::endl;
-		//display_contacts(phonebook);
-		//std::cout << std::endl;
-		//std::cout << std::endl;
-		//std::cout << "Enter the index of the contact you want to see: ";
-		//std::cin >> search_answer;
-		//std::cout << std::endl;
-		//if (!phonebook->contact[search_answer - 1].index)
-			//std::cout << "There is no such index" << std::endl;
-		//else
-			//std::cout << "We have a contact stored at that index!" << std::endl;
-			//phonebook->contact[search_answer - 1].print_single_contact();
+		phonebook->display_contacts(phonebook);
+		std::cout << std::endl;
+		std::cout << std::endl;
+		std::cout << "Enter the index of the contact you want to see: ";
+		while (search_answer == 0 || !(search_answer > 0 && search_answer < 9))
+			std::cin >> search_answer;
+		std::cout << std::endl;
+		if (phonebook->contact[search_answer - 1].check_contact_exists() == 1)
+			std::cout << "There is no such index" << std::endl;
+		else
+		{
+			std::cout << "We have a contact stored at that index!" << std::endl;
+			phonebook->contact[search_answer - 1].print_single_contact();
+		}
 	}
-	return (0);
 }
 
 

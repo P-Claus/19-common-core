@@ -58,8 +58,7 @@ int	main(void)
 	while (answer != "EXIT")
 	{
 		phonebook.display_prompt(&answer);
-		if (phonebook.evaluate_answer(&phonebook, answer, &index, &counter) == 1)
-		break;
+		phonebook.evaluate_answer(&phonebook, answer, &index, &counter) ;
 	}
 	if (answer == "EXIT")
 	{
