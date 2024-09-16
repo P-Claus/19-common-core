@@ -1,11 +1,7 @@
 #ifndef CONTACT_HPP
 #define CONTACT_HPP
 
-#include <iomanip>
-# include <iostream>
-# include <sstream>
-# include <string>
-# include <cstring>
+#include "main.hpp"
 
 class Contact
 {

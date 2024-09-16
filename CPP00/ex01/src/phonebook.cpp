@@ -33,26 +33,62 @@ void	PhoneBook::display_prompt(std::string *answer)
 	std::cout << *answer << std::endl;
 }
 
-void	PhoneBook::add_contact(Contact *contact, int *counter)
+
+
+int	PhoneBook::add_contact(Contact *contact, int *counter)
 {
 	std::string	input_data[5];
-	int	new_index = (*counter)++;
+	int	new_index = *counter;
 
 	std::cin.ignore();
 	std::cout << "Enter the first name: ";
-	getline(std::cin, input_data[0]);
+	if (getline(std::cin, input_data[0]))
+	{
+		if (input_data[0].empty())
+		{
+			std::cout << "The first name can't be empty" << std::endl;
+			return (1);
+		}
+	}
 	std::cout << "Enter the last name: ";
-	getline(std::cin, input_data[1]);
+	if (getline(std::cin, input_data[1]))
+	{
+		if (input_data[1].empty())
+		{
+			std::cout << "The last name can't be empty" << std::endl;
+			return (1);
+		}
+	}
 	std::cout << "Enter the nickname: ";
-	getline(std::cin, input_data[2]);
+	if (getline(std::cin, input_data[2]))
+	{
+		if (input_data[2].empty())
+		{
+			std::cout << "The nickname can't be empty" << std::endl;
+			return (1);
+		}
+	}
 	std::cout << "Enter the phone number: ";
-	getline(std::cin, input_data[3]);
+	if (getline(std::cin, input_data[3]))
+	{
+		if (input_data[3].empty())
+		{
+			std::cout << "The phone number can't be empty" << std::endl;
+			return (1);
+		}
+	}
 	std::cout << "Enter their darkest secret...: ";
-	getline(std::cin, input_data[4]);
-
+	if (getline(std::cin, input_data[4]))
+	{
+		if (input_data[4].empty())
+		{
+			std::cout << "Their secret can't be empty" << std::endl;
+			return (1);
+		}
+	}
 	contact->fill_contact(input_data, new_index);
-
-
+	(*counter)++;
+	return (0);
 }
 void	PhoneBook::display_contacts(PhoneBook *phonebook)
 {
@@ -64,7 +100,7 @@ void	PhoneBook::display_contacts(PhoneBook *phonebook)
 	}
 }
 
-void	PhoneBook::evaluate_answer(PhoneBook *phonebook, std::string answer, int *index, int *counter)
+int	PhoneBook::evaluate_answer(PhoneBook *phonebook, std::string answer, int *index, int *counter)
 {
 	int	search_answer = 0;
 
@@ -74,7 +110,13 @@ void	PhoneBook::evaluate_answer(PhoneBook *phonebook, std::string answer, int *i
 		*counter = 1;
 	}
 	if (answer == "ADD")
-		add_contact(&phonebook->contact[(*index)++], counter++);
+	{
+		if (add_contact(&phonebook->contact[(*index)++], counter) == 1)
+		{
+			return (1);
+		}
+		counter++;
+	}
 	if (answer == "SEARCH")
 	{
 		phonebook->print_contact_header();
@@ -83,7 +125,17 @@ void	PhoneBook::evaluate_answer(PhoneBook *phonebook, std::string answer, int *i
 		std::cout << std::endl;
 		std::cout << "Enter the index of the contact you want to see: ";
 		while (search_answer == 0 || !(search_answer > 0 && search_answer < 9))
+		{
 			std::cin >> search_answer;
+			if (!std::cin.fail())
+				break ;
+			else
+			{
+				std::cout << "Please enter and integer" << std::endl;
+				std::cin.clear();
+				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			}
+		}
 		std::cout << std::endl;
 		if (phonebook->contact[search_answer - 1].check_contact_exists() == 1)
 			std::cout << "There is no such index" << std::endl;
@@ -93,6 +145,7 @@ void	PhoneBook::evaluate_answer(PhoneBook *phonebook, std::string answer, int *i
 			phonebook->contact[search_answer - 1].print_single_contact();
 		}
 	}
+	return (0);
 }
 
 

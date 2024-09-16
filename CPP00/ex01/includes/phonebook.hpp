@@ -1,11 +1,7 @@
 #ifndef PHONEBOOK_HPP
 #define PHONEBOOK_HPP
 
-#include <string>
-#include <iostream>
-#include <iomanip>
-#include <sstream>
-#include "contact.hpp"
+#include "main.hpp"
 
 class PhoneBook
 {
@@ -16,10 +12,10 @@ class PhoneBook
 		void	print_contact_header();
 		void	print_header();
 		void	display_prompt(std::string *answer);
-		void	evaluate_answer(PhoneBook *phonebook, std::string answer, int *index, int *counter);
+		int		evaluate_answer(PhoneBook *phonebook, std::string answer, int *index, int *counter);
 		void	display_contact_header();
 		void	display_contacts(PhoneBook *phonebook);
-		void	add_contact(Contact *contact, int *counter);
+		int		add_contact(Contact *contact, int *counter);
 
 	PhoneBook(void)
 	{
