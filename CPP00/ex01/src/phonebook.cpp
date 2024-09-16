@@ -30,10 +30,7 @@ void	PhoneBook::display_prompt(std::string *answer)
 	std::cout << std::endl;
 	std::cout << "Enter the command (ADD, SEARCH, EXIT): ";
 	std::cin >> *answer;
-	std::cout << *answer << std::endl;
 }
-
-
 
 int	PhoneBook::add_contact(Contact *contact, int *counter)
 {
@@ -111,11 +108,10 @@ int	PhoneBook::evaluate_answer(PhoneBook *phonebook, std::string answer, int *in
 	}
 	if (answer == "ADD")
 	{
-		if (add_contact(&phonebook->contact[(*index)++], counter) == 1)
-		{
+		if (add_contact(&phonebook->contact[*index], counter) == 1)
 			return (1);
-		}
 		counter++;
+		(*index)++;
 	}
 	if (answer == "SEARCH")
 	{
@@ -147,5 +143,3 @@ int	PhoneBook::evaluate_answer(PhoneBook *phonebook, std::string answer, int *in
 	}
 	return (0);
 }
-
-

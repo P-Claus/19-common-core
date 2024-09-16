@@ -12,20 +12,10 @@ class PhoneBook
 		void	print_contact_header();
 		void	print_header();
 		void	display_prompt(std::string *answer);
-		int		evaluate_answer(PhoneBook *phonebook, std::string answer, int *index, int *counter);
+		int	evaluate_answer(PhoneBook *phonebook, std::string answer, int *index, int *counter);
 		void	display_contact_header();
 		void	display_contacts(PhoneBook *phonebook);
-		int		add_contact(Contact *contact, int *counter);
-
-	PhoneBook(void)
-	{
-		std::cout << "This is the phonebook constructor" << std::endl;
-	}
-
-	~PhoneBook(void)
-	{
-		std::cout << "This is the phonebook destructor" << std::endl;
-	}
+		int	add_contact(Contact *contact, int *counter);
 };
 
 #endif

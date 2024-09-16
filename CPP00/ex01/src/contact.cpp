@@ -6,11 +6,21 @@
 /*   By: pclaus <pclaus@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 19:33:32 by pclaus            #+#    #+#             */
-/*   Updated: 2024/09/15 18:49:43 by pclaus           ###   ########.fr       */
+/*   Updated: 2024/09/16 17:40:02 by pieter           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/main.hpp"
+
+Contact::Contact(void)
+{
+	index = 0;
+	strings[0] = "";
+	strings[1] = "";
+	strings[2] = "";
+	strings[3] = "";
+	strings[4] = "";
+};
 
 std::string	Contact::truncate_string(std::string *string)
 {
