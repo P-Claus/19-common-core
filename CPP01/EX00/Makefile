@@ -2,68 +2,46 @@
 ###		 			CONFIG		          ###
 #############################################
 
-NAME			= brains 
+NAME			= brainz 
 
-CC				= cc
-RM				= rm -rf
-CFLAGS			= -Wall -Werror -Wextra -std=c++98 -g $(INCLUDES)
+CC			= c++
+RM			= rm -rf
+CFLAGS			= -Wall -Werror -Wextra -std=c++98
 
 MKDIR			= mkdir -p
 
-SOURCE_FILES	= main.cpp
+INCLUDES		= I ./includes
 
-
+SOURCE_FILES		= main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
 SOURCES_DIR		= src
 SOURCES			= $(addprefix $(SOURCES_DIR)/, $(SOURCE_FILES))
+
 OBJ_DIR			= obj
-OBJ				= $(addprefix $(OBJ_DIR)/, $(notdir $(SOURCES:.cpp=.o)))
+OBJ_FILES		= $(addprefix $(OBJ_DIR)/, $(notdir $(SOURCES:.cpp=.o)))
 
-INCLUDES		= -I ./includes
 
-TOTAL_FILES := $(words $(SOURCE_FILES))
-
-COMPILE_COUNT = 0
 
 #############################################
-###					COLORS			      ###
-#############################################
-
-RED				= \033[0;31m
-GREEN			= \033[0;32m
-YELLOW			= \033[0;33m
-BLUE			= \033[0;34m
-MAGENTA			= \033[0;35m
-CYAN			= \033[0;36m
-RESET_COLOR		= \033[0m
-MOVEUP			= \033[F
-RESET			= \e[2K\r
-
-#############################################
-###		 			RULES	      	      ###
+###					RULES	      		  ###
 #############################################
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
-	@echo "$(RESET)$(GREEN)Compiled $(NAME)$(RESET_COLOR)"
+$(NAME): $(OBJ_FILES)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ_FILES)
 
 $(OBJ_DIR)/%.o: $(SOURCES_DIR)/%.cpp
 	$(MKDIR) $(OBJ_DIR)
-	$(CC) $(CFLAGS) -c $< -o $@
-	$(eval COMPILE_COUNT=$(shell echo $$(($(COMPILE_COUNT)+1))))
-	echo -n "$(RESET)[$(YELLOW)$$(($(COMPILE_COUNT)*100/$(TOTAL_FILES)))%] Compiling $(NAME)"
+	$(CC) $(CFLAGS) -c $< -o $@ 
 
 clean:
-	@$(RM) $(OBJ_DIR)
-	@echo "$(GREEN)Removed the object files from $(NAME)$(RESET_COLOR)"
+	$(RM) $(OBJ_DIR)
 
 fclean: clean
-	@$(RM) $(NAME)
-	@echo "$(GREEN)Removed $(NAME) and the object files$(RESET_COLOR)"
+	$(RM) $(NAME)
 
 re:
-	@make -s fclean
-	@make -s
+	make -s fclean
+	make -s
 
 .PHONY:	all clean fclean re
