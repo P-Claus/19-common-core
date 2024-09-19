@@ -6,7 +6,7 @@
 /*   By: pieter <pclaus@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 21:38:31 by pieter            #+#    #+#             */
-/*   Updated: 2024/09/18 22:15:31 by pieter           ###   ########.fr       */
+/*   Updated: 2024/09/19 17:34:19 by pieter           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,17 @@
 int	main(void)
 {
 	Weapon club("club");
-
 	
 	HumanA Bob("Bob", club);
 	Bob.attack();
-	club.setType("some other type of weapon");
+	club.setType("dragon scimitar");
 	Bob.attack();
 
 	Weapon bat("bat");
 	HumanB Jim("Jim");
 	Jim.setWeapon(bat);
 	Jim.attack();
-	bat.setType("some other type of bat");
+	bat.setType("abyssal whip");
 	Jim.attack();
 
 }

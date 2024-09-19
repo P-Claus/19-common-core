@@ -1,12 +1,11 @@
 #ifndef HUMANA_HPP
 #define HUMANA_HPP
 
-#include <string>
 #include "Weapon.hpp"
 
 class HumanA
 {
-	std::string const & weapon;
+	Weapon const & wpn;
 	std::string name;
 
 	public:
