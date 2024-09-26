@@ -4,12 +4,15 @@
 ClapTrap::ClapTrap(void)
 {
     std::cout << "Default ClapTrap constructor called" << std::endl;
+	hitPoints = 10;
+	energyPoints = 10;
+	attackDamage = 0;
     return ;
 }
 
 ClapTrap::ClapTrap(const std::string string)
 {
-    std::cout << "ScavTrap String constructor called" << std::endl;
+    std::cout << "ClapTrap String constructor called" << std::endl;
 	hitPoints = 10;
 	energyPoints = 6;
 	attackDamage = 3;
@@ -20,7 +23,7 @@ ClapTrap::ClapTrap(const std::string string)
 // Copy constructor
 ClapTrap::ClapTrap(const ClapTrap &other)
 {
-    std::cout << "Copy constructor called" << std::endl;
+    std::cout << "ClapTrap Copy constructor called" << std::endl;
     (void) other;
     return ;
 }
@@ -59,6 +62,8 @@ void	ClapTrap::takeDamage(unsigned int amount)
 		std::cout << "ClapTrap " << name << " is hit, losing " << amount << " hitpoints!";
 		
 		hitPoints -= amount;
+		if (hitPoints < 0)
+			hitPoints = 0;
 		std::cout << " || HP left: " << hitPoints << std::endl;
 }
 
