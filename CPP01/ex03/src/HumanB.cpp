@@ -1,9 +1,8 @@
 #include "../includes/HumanB.hpp"
 
-HumanB::HumanB(std::string p_name) : wpn(nullptr)
+HumanB::HumanB(std::string p_name) : _wpn(nullptr), _name(p_name)
 {
 	std::cout << "HumanB is born..." << std::endl;
-	name = p_name;
 }
 
 HumanB::~HumanB()
@@ -13,11 +12,14 @@ HumanB::~HumanB()
 
 void	HumanB::setWeapon(Weapon & weapon)
 {
-	wpn = &weapon;
+	_wpn = &weapon;
 }
 
 void	HumanB::attack()
 {
-	std::cout << name << " attacks with their " << this->wpn->getType() << std::endl;
+	if (this->_wpn)
+		std::cout << _name << " attacks with their " << this->_wpn->getType() << std::endl;
+	else
+		std::cout << _name << " does not have a weapon yet!" << std::endl;
 }
 

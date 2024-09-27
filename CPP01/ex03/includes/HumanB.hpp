@@ -5,9 +5,9 @@
 
 class HumanB
 {
-	Weapon const *wpn;
-	std::string name;
-
+	private:
+		Weapon const *_wpn;
+		std::string _name;
 	public:
 		void attack();
 		HumanB(std::string p_name);
