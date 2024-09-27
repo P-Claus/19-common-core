@@ -6,7 +6,7 @@
 /*   By: pclaus <pclaus@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 19:48:56 by pclaus            #+#    #+#             */
-/*   Updated: 2024/09/27 08:52:17 by pieter           ###   ########.fr       */
+/*   Updated: 2024/09/27 13:32:37 by pclaus           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int	main(int argc, char ** argv)
 			curr_arg = argv[counter];
 			while (curr_arg[iter] != '\0')
 				std::cout << (char)toupper(curr_arg[iter++]);
-			std::cout << " ";
 			iter = 0;
 			counter++;
 		}

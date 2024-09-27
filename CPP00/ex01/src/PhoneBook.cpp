@@ -123,6 +123,8 @@ int	PhoneBook::evaluate_answer(PhoneBook *phonebook, std::string answer, int *in
 		while (search_answer == 0 || !(search_answer > 0 && search_answer < 9))
 		{
 			std::cin >> search_answer;
+			if (std::cin.eof())
+				exit(0);
 			if (!std::cin.fail())
 				break ;
 			else
@@ -133,7 +135,7 @@ int	PhoneBook::evaluate_answer(PhoneBook *phonebook, std::string answer, int *in
 			}
 		}
 		std::cout << std::endl;
-		if ((search_answer < 0 || search_answer > 8) || phonebook->contact[search_answer - 1].check_contact_exists() == 1)
+		if ((search_answer <= 0 || search_answer > 8) || phonebook->contact[search_answer - 1].check_contact_exists() == 1)
 			std::cout << "There is no such index" << std::endl;
 		else
 		{

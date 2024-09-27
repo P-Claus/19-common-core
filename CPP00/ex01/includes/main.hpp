@@ -5,6 +5,7 @@
 #include <iostream>
 #include <sstream>
 #include <limits>
+#include <cstdlib>
 
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
