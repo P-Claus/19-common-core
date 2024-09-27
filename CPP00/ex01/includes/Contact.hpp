@@ -5,16 +5,16 @@
 
 class Contact
 {
-	std::string		strings[5];
-	int				index;
-
-	public:
+	private:
+		int		index;
+		std::string	strings[5];
 		std::string	truncate_string(std::string *string);
+	public:
+		Contact();
+		void 		fill_contact(std::string input_data[], int new_index);
 		void		print_contacts();
 		void		print_single_contact();
-		void 		fill_contact(std::string input_data[], int new_index);
-		int			check_contact_exists();
-		Contact();
+		int		check_contact_exists();
 };
 
 #endif

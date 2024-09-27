@@ -2,10 +2,10 @@
 
 int	main(void)
 {
-	PhoneBook		phonebook;
+	PhoneBook	phonebook;
 	std::string 	answer;
-	int				counter (1);
-	int				index (0);
+	int		counter (1);
+	int		index (0);
 
 	phonebook.print_header();
 	while (answer != "EXIT")
@@ -16,7 +16,7 @@ int	main(void)
 	if (answer == "EXIT")
 	{
 		std::cout << "Ending the program and destroying all contacts forever..." << std::endl;
-		return (0);
+		exit(0);
 	}
 	return (0);
 }
