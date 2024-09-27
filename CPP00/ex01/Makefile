@@ -12,7 +12,7 @@ MKDIR			= mkdir -p
 
 INCLUDES		= I ./includes
 
-SOURCE_FILES	= main.cpp phonebook.cpp contact.cpp
+SOURCE_FILES	= main.cpp PhoneBook.cpp Contact.cpp
 SOURCES_DIR		= src
 SOURCES			= $(addprefix $(SOURCES_DIR)/, $(SOURCE_FILES))
 

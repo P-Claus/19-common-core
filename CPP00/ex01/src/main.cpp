@@ -2,10 +2,10 @@
 
 int	main(void)
 {
-	PhoneBook phonebook;
-	std::string answer;
-	int	counter = 1;
-	int	index = 0;
+	PhoneBook		phonebook;
+	std::string 	answer;
+	int				counter (1);
+	int				index (0);
 
 	phonebook.print_header();
 	while (answer != "EXIT")

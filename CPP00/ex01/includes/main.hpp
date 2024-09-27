@@ -4,11 +4,9 @@
 #include <iomanip>
 #include <iostream>
 #include <sstream>
-#include <string>
-#include <cstring>
 #include <limits>
 
-#include "contact.hpp"
-#include "phonebook.hpp"
+#include "Contact.hpp"
+#include "PhoneBook.hpp"
 
 #endif
