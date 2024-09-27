@@ -30,6 +30,8 @@ void	PhoneBook::display_prompt(std::string *answer)
 	std::cout << std::endl;
 	std::cout << "Enter the command (ADD, SEARCH, EXIT): ";
 	std::cin >> *answer;
+	if (std::cin.eof())
+		exit(0);
 }
 
 int	PhoneBook::add_contact(Contact *contact, int *counter)
