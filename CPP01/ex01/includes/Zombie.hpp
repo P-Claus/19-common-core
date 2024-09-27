@@ -3,14 +3,11 @@
 
 #include <iostream>
 #include <string>
-#include <iomanip>
-#include <sstream>
-
 
 class Zombie
 {
-	std::string _name;
-
+	private:
+		std::string _name;
 	public:
 		void	announce();
 		void	init(std::string zombie_name);
