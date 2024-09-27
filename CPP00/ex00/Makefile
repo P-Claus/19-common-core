@@ -10,8 +10,8 @@ CFLAGS			= -Wall -Werror -Wextra -std=c++98
 
 MKDIR			= mkdir -p
 
-SOURCE_FILE		= ex00.cpp 
-OBJ_FILES		= ex00.o
+SOURCE_FILE		= megaphone.cpp 
+OBJ_FILES		= megaphone.o
 
 #############################################
 ###					RULES	      		  ###
