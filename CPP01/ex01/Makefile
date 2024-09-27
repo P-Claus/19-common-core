@@ -2,7 +2,7 @@
 ###		 			CONFIG		          ###
 #############################################
 
-NAME			= braaaaaaaainz 
+NAME			= horde 
 
 CC			= c++
 RM			= rm -rf
@@ -12,7 +12,7 @@ MKDIR			= mkdir -p
 
 INCLUDES		= I ./includes
 
-SOURCE_FILES		= main.cpp Zombie.cpp
+SOURCE_FILES		= main.cpp Zombie.cpp zombieHorde.cpp
 SOURCES_DIR		= src
 SOURCES			= $(addprefix $(SOURCES_DIR)/, $(SOURCE_FILES))
 
