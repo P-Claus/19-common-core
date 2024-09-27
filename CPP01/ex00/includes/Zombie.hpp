@@ -2,14 +2,12 @@
 #define ZOMBIE_HPP
 
 #include <iostream>
-#include <string>
 #include <iomanip>
 #include <sstream>
 
-
 class Zombie
 {
-	std::string name;
+	std::string _name;
 
 	public:
 		void	announce();

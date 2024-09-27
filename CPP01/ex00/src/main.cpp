@@ -6,5 +6,4 @@ int main(void)
 	Billy->announce();
 	randomChump("Joel");
 	delete(Billy);
-
 }
