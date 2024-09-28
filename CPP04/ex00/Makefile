@@ -12,7 +12,7 @@ MKDIR			= mkdir -p
 
 INCLUDES		= I ./includes
 
-SOURCE_FILES	= main.cpp Animal.cpp Dog.cpp Cat.cpp
+SOURCE_FILES	= main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
 SOURCES_DIR		= src
 SOURCES			= $(addprefix $(SOURCES_DIR)/, $(SOURCE_FILES))
 

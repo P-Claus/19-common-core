@@ -6,14 +6,14 @@
 
 class Animal {
 	
-	private:
-		std::string	type;
+	protected:
+		std::string	_type;
 	public:
 		//constructor
 		Animal(void);
 
 		//destructor
-		~Animal(void);
+		virtual~Animal(void);
 
 		///copy constructor
 		Animal(const Animal& other);

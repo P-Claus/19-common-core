@@ -2,7 +2,6 @@
 
 class Cat : public Animal
 {
-
 	public:
 		//constructor
 		Cat(void);
@@ -15,4 +14,7 @@ class Cat : public Animal
 
 		//=operator overload
 		Cat &operator=(const Cat &rhs);
+
+		//misc
+		void	makeSound() const;
 };

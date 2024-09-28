@@ -2,7 +2,6 @@
 
 class Dog : public Animal
 {
-
 	public:
 		//constructor
 		Dog(void);
@@ -17,5 +16,5 @@ class Dog : public Animal
 		Dog &operator=(const Dog &rhs);
 
 		//misc
-		virtual void	makeSound() const;
+		void	makeSound() const;
 };

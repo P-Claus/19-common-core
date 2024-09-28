@@ -1,10 +1,8 @@
 #include "../includes/Animal.hpp"
 
-Animal::Animal(void)
+Animal::Animal(void) : _type("Basic animal")
 {
 	std::cout << "An animal is born..." << std::endl;
-	type = "Basic animal";
-	getType();
 }
 
 Animal::~Animal(void)
@@ -15,14 +13,14 @@ Animal::~Animal(void)
 std::string Animal::getType(void) const
 {
 	std::string	string;
-	string = this->type;
-	std::cout << "The type is: " << string << std::endl;
+	string = this->_type;
+	//std::cout << "The type is: " << string << std::endl;
 	return (string);
 }
 
 void	Animal::setType(std::string string)
 {
-	this->type = string;
+	this->_type = string;
 }
 
 void	Animal::makeSound() const
