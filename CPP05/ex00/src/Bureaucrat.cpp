@@ -1,5 +1,6 @@
 #include "../includes/Bureaucrat.hpp"
 
+/*	EXCEPTIONS	*/
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
 	return ("The grade you have entered is too high");
@@ -10,6 +11,27 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 	return ("The grade you have entered is too low");
 }
 
+/*	CONSTRUCTORS	*/
+Bureaucrat::Bureaucrat(void): _name("Bot"), _grade(150)
+{
+	std::cout << "Default constructor has been called" << std::endl;
+}
+
+Bureaucrat::Bureaucrat(std::string name): _name(name), _grade(150)
+{
+	std::cout << "String constructor has been called" << std::endl;
+}
+
+Bureaucrat::Bureaucrat(int grade): _name("Bot"), _grade(grade)
+{
+	if (grade < 1)
+		throw GradeTooHighException();
+	else if (grade > 150)
+		throw GradeTooLowException();
+	else
+		std::cout << "Int constructor has been called" << std::endl;
+}
+
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade) 
 {
 	if (grade < 1)
@@ -17,17 +39,21 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 	else if (grade > 150)
 		throw GradeTooLowException();
 	else
-	{
-		_grade = grade;
-		std::cout << "Bureaucrat " << Bureaucrat::getName() << " was born with a grade of " << Bureaucrat::getGrade() << std::endl;
-	}
+		std::cout << "String and int constructor has been called" << std::endl;
 }
 
+Bureaucrat::Bureaucrat(const Bureaucrat& other): _name(other.getName() + "_copy"), _grade(other._grade)
+{
+	std::cout << "Copy constructor has been called" << std::endl;
+}
+
+/*	DESTRUCTORS	*/
 Bureaucrat::~Bureaucrat(void)
 {
 	std::cout << "Bureaucrat " << Bureaucrat::getName() << " has died..." << std::endl;
 }
 
+/*	GETTERS	*/
 const std::string Bureaucrat::getName(void) const
 {
 	return (_name);
@@ -38,6 +64,7 @@ int	Bureaucrat::getGrade(void)
 	return (_grade);
 }
 
+/*	INCREMENT FUNCTIONS	*/
 void	Bureaucrat::incrementGrade(int grade)
 {
 	int	temp(_grade);
@@ -66,9 +93,19 @@ void	Bureaucrat::decrementGrade(int grade)
 	}
 }
 
+/*	ASSIGNMENT OVERLOAD	*/
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat& rhs)
+{
+	if (this != &rhs)
+	{
+		this->_grade = rhs._grade;
+	}
+	return (*this);
+}
+
+/*	INSERTION OVERLOAD	*/
 std::ostream& operator<<(std::ostream& output, Bureaucrat& rhs)
 {
-	//output << rhs.getName() << rhs.getGrade();
-	output << rhs.getName() << ", bureaucrat grade " << rhs.getGrade();
+	output << "[" << rhs.getName() << "] grade -> " << rhs.getGrade();
 	return (output);
 }

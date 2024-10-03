@@ -12,14 +12,24 @@ class	Bureaucrat
 		const std::string 	_name;
 		int					_grade;
 	public:
+		//constructors
+		Bureaucrat(void);
+		Bureaucrat(std::string name);
+		Bureaucrat(int grade);
 		Bureaucrat(std::string name, int grade);
-		~Bureaucrat();
 		Bureaucrat(const Bureaucrat& other);
+
+		//destructor
+		~Bureaucrat();
+
+		//assignment operator overload
 		Bureaucrat& operator=(const Bureaucrat& rhs);
 
+		//getters
 		const std::string 	getName(void) const;
 		int					getGrade(void);
 
+		//change grade
 		void				incrementGrade(int	grade);
 		void				decrementGrade(int grade);
 
