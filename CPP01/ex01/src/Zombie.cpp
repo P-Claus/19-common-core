@@ -10,8 +10,8 @@ void	Zombie::announce(void)
 	std::cout << _name << ":  BraiiiiiiinnnzzzZ..." << std::endl;
 }
 
-void	Zombie::init(std::string zombie_name)
+void	Zombie::init(std::string zombieName)
 {
-	_name = zombie_name;
+	_name = zombieName;
 }
 
