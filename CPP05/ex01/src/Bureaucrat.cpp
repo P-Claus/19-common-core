@@ -13,7 +13,7 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 }
 
 /*	CONSTRUCTORS	*/
-Bureaucrat::Bureaucrat(void): _name("Bot"), _grade(150)
+Bureaucrat::Bureaucrat(void): _name("bot"), _grade(150)
 {
 	std::cout << "Default constructor has been called for " << this->_name << std::endl;
 }
@@ -23,7 +23,7 @@ Bureaucrat::Bureaucrat(std::string name): _name(name), _grade(150)
 	std::cout << "String constructor has been called for " << this->_name << std::endl;
 }
 
-Bureaucrat::Bureaucrat(int grade): _name("Bot"), _grade(grade)
+Bureaucrat::Bureaucrat(int grade): _name("bot"), _grade(grade)
 {
 	if (grade < 1)
 		throw GradeTooHighException();
@@ -65,7 +65,7 @@ int	Bureaucrat::getGrade(void)
 	return (_grade);
 }
 
-/*	INCREMENT FUNCTIONS	*/
+/*	INCREMENT/DECREMENT FUNCTIONS	*/
 void	Bureaucrat::incrementGrade(int grade)
 {
 	int	temp(_grade);

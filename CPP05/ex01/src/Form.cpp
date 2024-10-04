@@ -13,7 +13,7 @@ const char* Form::GradeTooLowException::what() const throw()
 }
 
 /*	CONSTRUCTORS	*/
-Form::Form(void): _name("Default"), _is_signed(false), _req_sign_grade(1), _req_exec_grade(1)
+Form::Form(void): _name("default"), _is_signed(false), _req_sign_grade(1), _req_exec_grade(1)
 {
 	std::cout << "Default constructor for [" << _name << "] has been called" <<std::endl;
 
