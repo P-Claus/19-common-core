@@ -2,6 +2,7 @@
 
 Zombie::Zombie(std::string zombie_name) : _name(zombie_name)
 {
+	std::cout << "String contructor for " << _name << " has been called" << std::endl;
 }
 
 Zombie::~Zombie(void)
