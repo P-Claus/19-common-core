@@ -17,21 +17,21 @@ void	error_check(std::ifstream & inFile)
 void	find_and_replace_string(std::ifstream & inFile, char **argv)
 {
 	std::string		filename = argv[1];
-	std::string 	new_filename = filename  + ".replace";
-	std::string 	str_to_replace = argv[2];
-	std::string 	str_replace_with = argv[3];
-	std::size_t 	str_pos;
+	std::string 	newFilename = filename  + ".replace";
+	std::string 	strToReplace = argv[2];
+	std::string 	strReplaceWith = argv[3];
+	std::size_t 	strPos;
 	std::string		line = "start";
-	std::ofstream	outputFile(new_filename);
+	std::ofstream	outputFile(newFilename);
 
 	while (true)
 	{
 		std::getline(inFile, line);
-		while (line.find(str_to_replace) != std::string::npos)
+		while (line.find(strToReplace) != std::string::npos)
 		{
-			str_pos = line.find(str_to_replace);
-			line.erase(str_pos, str_to_replace.size());
-			line.insert(str_pos, str_replace_with);
+			strPos = line.find(strToReplace);
+			line.erase(strPos, strToReplace.size());
+			line.insert(strPos, strReplaceWith);
 		}
 		if (inFile.eof())
 		{
