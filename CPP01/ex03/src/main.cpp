@@ -6,7 +6,7 @@
 /*   By: pieter <pclaus@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 21:38:31 by pieter            #+#    #+#             */
-/*   Updated: 2024/10/03 18:55:08 by pclaus           ###   ########.fr       */
+/*   Updated: 2024/10/04 13:36:13 by pclaus           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ int	main(void)
 	dds.setType("dragon scimitar");
 	Bob.attack();
 
-	Weapon longsword("dragon longsword");
+	Weapon longsword = Weapon("dragon longsword");
+
 	HumanB Jim("Jim");
 	Jim.attack();
 	Jim.setWeapon(longsword);

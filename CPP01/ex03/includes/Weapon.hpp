@@ -7,11 +7,11 @@
 class Weapon
 {
 	private:
-		std::string _type;
+		std::string 		_type;
 	public:
-	std::string const &		getType() const;
-	void					setType(std::string weapon_type);
-	Weapon(std::string weapon);
+		std::string const &	getType() const;
+		void			setType(std::string weapon_type);
+		Weapon(std::string weapon);
 };
 
 #endif
