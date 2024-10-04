@@ -1,6 +1,6 @@
 #include "../includes/HumanB.hpp"
 
-HumanB::HumanB(std::string p_name) : _wpn(NULL), _name(p_name)
+HumanB::HumanB(std::string pName) : _wpn(NULL), _name(pName)
 {
 	std::cout << "HumanB is born..." << std::endl;
 }
