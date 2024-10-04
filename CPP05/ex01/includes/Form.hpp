@@ -12,14 +12,15 @@ class Form
 {
 	private:
 		const std::string	_name;
-		bool				_is_signed;
-		const int			_req_sign_grade;
-		const int			_req_exec_grade;
+		bool				_isSigned;
+		const int			_reqSignGrade;
+		const int			_reqExecGrade;
 	public:
 		//constructors
 		Form();
 		Form(const std::string name);
-		Form(const std::string name, const int req_sign_grade, const int req_exec_grade);
+		Form(const std::string name, const int reqSignGrade, const int reqExecGrade);
+		Form(const Form& other);
 
 		//destructor
 		~Form(void);

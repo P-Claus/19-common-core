@@ -13,27 +13,32 @@ const char* Form::GradeTooLowException::what() const throw()
 }
 
 /*	CONSTRUCTORS	*/
-Form::Form(void): _name("default"), _is_signed(false), _req_sign_grade(1), _req_exec_grade(1)
+Form::Form(void): _name("default"), _isSigned(false), _reqSignGrade(1), _reqExecGrade(1)
 {
 	std::cout << "Default constructor for [" << _name << "] has been called" <<std::endl;
 
 }
 
-Form::Form(const std::string name): _name(name), _is_signed(false), _req_sign_grade(1), _req_exec_grade(1)
+Form::Form(const std::string name): _name(name), _isSigned(false), _reqSignGrade(1), _reqExecGrade(1)
 {
 	std::cout << "String constructor for [" << _name << "] has been called" << std::endl;
 }
 
-Form::Form(const std::string name, const int req_sign_grade, const int req_exec_grade): _name(name), _is_signed(false), _req_sign_grade(req_sign_grade), _req_exec_grade(req_exec_grade)
+Form::Form(const std::string name, const int reqSignGrade, const int reqExecGrade): _name(name), _isSigned(false), _reqSignGrade(reqSignGrade), _reqExecGrade(reqExecGrade)
 {
-	if (req_sign_grade < 1 || req_exec_grade < 1)
+	if (reqSignGrade < 1 || reqExecGrade < 1)
 		throw GradeTooHighException();
-	else if (req_sign_grade > 150 || req_exec_grade > 150)
+	else if (reqSignGrade > 150 || reqExecGrade > 150)
 		throw GradeTooLowException();
 	else
 	{
 		std::cout << "Full constructor for [" << _name << "] has been called" << std::endl;
 	}
+}
+
+Form::Form(const Form& other): _name(other._name + "_copy"), _isSigned(false), _reqSignGrade(other._reqSignGrade), _reqExecGrade(other._reqExecGrade)
+{
+	std::cout << "The copy constructor for [" << _name << "] has been called" << std::endl;
 }
 
 /*	DESTRUCTOR	*/
@@ -50,17 +55,17 @@ const std::string	Form::getName(void) const
 
 int	Form::getIsSigned(void) const
 {
-	return (_is_signed);
+	return (_isSigned);
 }
 
 int	Form::getReqSignGrade(void) const
 {
-	return (_req_sign_grade);
+	return (_reqSignGrade);
 }
 
 int	Form::getReqExecGrade(void) const
 {
-	return (_req_exec_grade);
+	return (_reqExecGrade);
 }
 
 /*	SIGN FUNCTION	*/
@@ -69,7 +74,7 @@ void	Form::beSigned(Bureaucrat& bureaucrat)
 	if (bureaucrat.signForm(*this) == 1)
 		throw GradeTooLowException();
 	else
-		_is_signed = true;
+		_isSigned = true;
 }
 
 /*	ASSIGNMENT OVERLOAD	*/
@@ -77,7 +82,7 @@ Form& Form::operator=(const Form& rhs)
 {
 	if (this != &rhs)
 	{
-		this->_is_signed = rhs._is_signed;
+		this->_isSigned = rhs._isSigned;
 	}
 	return (*this);
 }
@@ -85,7 +90,7 @@ Form& Form::operator=(const Form& rhs)
 /*	INSERTION OVERLOAD	*/
 std::ostream& operator<<(std::ostream& output, Form& rhs)
 {
-	output << "[" << rhs.getName() << "] -> SIGNED: " << rhs.getIsSigned() << " | GRADE TO SIGN: " << rhs.getReqSignGrade() << " | GRADE TO EXEC: " << rhs.getReqSignGrade() << std::endl;
+	output << "[" << rhs.getName() << "] -> SIGNED: " << rhs.getIsSigned() << " | GRADE TO SIGN: " << rhs.getReqSignGrade() << " | GRADE TO EXEC: " << rhs.getReqExecGrade() << std::endl;
 	return (output);
 }
 
