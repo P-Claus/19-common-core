@@ -1,6 +1,5 @@
 #include "../includes/Harl.hpp"
 
-
 Harl::Harl(void)
 {
 	std::cout << "Harl has been created" << std::endl; 
@@ -33,8 +32,8 @@ void	Harl::error(void)
 
 void	Harl::complain(std::string level)
 {
-	void (Harl::*f)(void);
-	int		code;
+	void 		(Harl::*f)(void);
+	int			code;
 	std::string	log[4]; 
 
 	log[0] = "debug";
