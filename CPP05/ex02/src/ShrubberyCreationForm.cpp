@@ -1,6 +1,11 @@
 #include "../includes/ShrubberyCreationForm.hpp"
 
 /*	CONSTRUCTORS	*/
+ShrubberyCreationForm::ShrubberyCreationForm(void): AForm("defaultShrubbery", 145, 137), _target("defaultTarget")
+{
+	std::cout << "| SHCF |	The default constructor has been called and [" << _target << "] is the target" << std::endl;
+}
+
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target): AForm("Shrubbery", 145, 137), _target(target)
 {
 	std::cout << "| SHCF |	The constructor has been called and [" << _target << "] is the target" << std::endl;

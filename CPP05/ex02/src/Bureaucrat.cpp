@@ -100,6 +100,7 @@ void		Bureaucrat::signForm(AForm& form)
 	if (this->_grade > form.getReqSignGrade())
 	{
 		std::cout << "[" << this->_name << "] could not sign " << form.getName() << " because his grade is too low" << std::endl;
+		throw (GradeTooLowException());
 	}
 	else
 		form.beSigned(*this);	
@@ -111,7 +112,7 @@ void		Bureaucrat::executeForm(const AForm &form)
 	if (this->_grade > form.getReqExecGrade())
 	{
 		std::cout << "[" << this->_name << "] could not execute " << form.getName() << " because his grade is too low" << std::endl;
-		form.execute(*this);		
+		throw (GradeTooLowException());
 	}
 	else
 	{

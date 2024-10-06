@@ -8,7 +8,7 @@ int	main(void)
 {
 	try
 	{
-		Bureaucrat Jim("Jim", 60);
+		Bureaucrat Jim("Jim", 3);
 
 		ShrubberyCreationForm newForm("garden");
 		std::cout << newForm << std::endl;
@@ -39,6 +39,12 @@ int	main(void)
 		std::cout << roboForm << std::endl;
 
 		Jim.executeForm(roboForm);
+
+		Jim.signForm(presiCopy);
+
+		std::cout << presiCopy << std::endl;
+
+		Jim.executeForm(presiCopy);
 	}
 
 	catch (const Bureaucrat::GradeTooHighException& e)

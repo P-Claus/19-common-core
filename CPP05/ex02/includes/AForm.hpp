@@ -17,8 +17,7 @@ class AForm
 		const int			_reqExecGrade;
 	public:
 		//constructors
-		//AForm();
-		//AForm(const std::string name);
+		AForm(void);
 		AForm(const std::string& name, const int reqSignGrade, const int reqExecGrade);
 		AForm(const AForm& other);
 

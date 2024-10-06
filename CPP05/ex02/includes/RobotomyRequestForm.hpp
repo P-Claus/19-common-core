@@ -13,6 +13,7 @@ class RobotomyRequestForm : public AForm
 {
 	private:
 		const std::string	_target;
+		RobotomyRequestForm();
 		//getters
 		const std::string	getTarget(void);
 	public:

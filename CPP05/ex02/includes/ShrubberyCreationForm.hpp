@@ -15,6 +15,7 @@ class ShrubberyCreationForm : public AForm
 		const std::string	_target;
 		//getters
 		const std::string	getTarget(void) const;
+		ShrubberyCreationForm();
 	public:
 		//constructors
 		ShrubberyCreationForm(const std::string& target);

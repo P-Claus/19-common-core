@@ -3,6 +3,11 @@
 static int	robotomy_count = 0;
 
 /*	CONSTRUCTORS	*/
+RobotomyRequestForm::RobotomyRequestForm(void): AForm("defaultRobotomy", 72, 45), _target("defaultTarget")
+{
+	std::cout << "| ROBO |	The default constructor has been called and [" << _target << "] is the target" << std::endl;
+}
+
 RobotomyRequestForm::RobotomyRequestForm(const std::string& target): AForm("Robotomy", 72, 45), _target(target)
 {
 	std::cout << "| ROBO |	The constructor has been called and [" << _target << "] is the target" << std::endl;
@@ -40,7 +45,6 @@ std::ostream& operator<<(std::ostream& output, RobotomyRequestForm& rhs)
 	output << "||ROBO||	Signed: [" << rhs.getIsSigned() << "] Grade to sign: [" << rhs.getReqSignGrade() << "] Grade to execute: [" << rhs.getReqExecGrade() << "]" << std::endl;
 	return (output);
 }
-
 
 /*	MISC.	*/
 void	RobotomyRequestForm::execute(const Bureaucrat &executor) const

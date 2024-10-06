@@ -23,17 +23,11 @@ const char* AForm::FormAlreadySignedException::what() const throw()
 }
 
 /*	CONSTRUCTORS	*/
-/*
-AForm::AForm(void): _name("default"), _isSigned(false), _reqSignGrade(1), _reqExecGrade(1)
+
+AForm::AForm(void): _name("default"), _isSigned(false), _reqSignGrade(150), _reqExecGrade(150)
 {
 	std::cout << "| BASE |	Default constructor for [" << _name << "] has been called" <<std::endl;
-
 }
-AForm::AForm(const std::string name): _name(name), _isSigned(false), _reqSignGrade(1), _reqExecGrade(1)
-{
-	std::cout << "String constructor for [" << _name << "] has been called" << std::endl;
-}
-*/
 
 AForm::AForm(const std::string& name, const int reqSignGrade, const int reqExecGrade): _name(name), _reqSignGrade(reqSignGrade), _reqExecGrade(reqExecGrade)
 {
@@ -90,7 +84,6 @@ void	AForm::beSigned(Bureaucrat& bureaucrat)
 {
 	if (this->_isSigned == true)
 		throw(FormAlreadySignedException());
-		//std::cout << "Form " << this->_name << " is already signed" << std::endl;
 	else
 	{
 		_isSigned = true;
@@ -114,4 +107,3 @@ std::ostream& operator<<(std::ostream& output, AForm& rhs)
 	output << "[" << rhs.getName() << "] -> SIGNED: " << rhs.getIsSigned() << " | GRADE TO SIGN: " << rhs.getReqSignGrade() << " | GRADE TO EXEC: " << rhs.getReqExecGrade() << std::endl;
 	return (output);
 }
-

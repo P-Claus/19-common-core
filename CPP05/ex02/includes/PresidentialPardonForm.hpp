@@ -13,6 +13,7 @@ class PresidentialPardonForm : public AForm
 {
 	private:
 		const std::string	_target;
+		PresidentialPardonForm();
 		//getters
 		const std::string	getTarget(void);
 	public:

@@ -2,6 +2,11 @@
 #include "../includes/PresidentialPardonForm.hpp"
 
 /*	CONSTRUCTORS	*/
+PresidentialPardonForm::PresidentialPardonForm(void): AForm("defaultPresi", 25, 5), _target("defaultTarget")
+{
+	std::cout << "| PRES |	The default constructor has been called and [" << _target << "] is the target" << std::endl;
+}
+
 PresidentialPardonForm::PresidentialPardonForm(const std::string& target): AForm("Presidential", 25, 5), _target(target)
 {
 	std::cout << "| PRES |	The constructor has been called and [" << _target << "] is the target" << std::endl;
