@@ -50,7 +50,7 @@ AForm* Intern::makePresident(const std::string& target)
 
 AForm* Intern::makeForm(const std::string& formName, const std::string& target)
 {
-	AForm*			(Intern::*f)(const std::string& target);
+	AForm*			(Intern::*f[3])(const std::string& target) = { &Intern::makeShrubbery, &Intern::makeRobotomy, &Intern::makePresident };
 	int				code = -1;
 	std::string 	form[3];
 
@@ -67,18 +67,14 @@ AForm* Intern::makeForm(const std::string& formName, const std::string& target)
 	switch (code)
 	{
 		case 0:
-			f = &Intern::makeShrubbery;
-			break;
+			return (this->*f[0])(target);
 		case 1:
-			f = &Intern::makeRobotomy;
-			break;
+			return (this->*f[1])(target);
 		case 2:
-			f = &Intern::makePresident;
-			break;
+			return (this->*f[2])(target);
 		default:
 			std::cout << "Intern cannot create the form because there is no such type of form" << std::endl;
 			return (NULL);
 	};
-	return (this->*f)(target);
 }
 
