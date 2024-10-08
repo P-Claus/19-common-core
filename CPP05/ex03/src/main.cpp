@@ -10,26 +10,16 @@ int	main(void)
 	try
 	{
 		Intern intern;
-
+		Intern copyIntern(intern);
 		AForm* rrrf;
 
 		rrrf = intern.makeForm("presidential pardon", "Bender");
-
-		std::cout << rrrf << std::endl;
-
 		delete rrrf;
 
 		AForm* a = intern.makeForm("shrubbery creation", "japanese garden");
-
-		std::cout << a << std::endl;
-
 		delete a;
 
-
 		AForm* b = intern.makeForm("lol", "Iraq");
-
-		std::cout << b << std::endl;
-
 		delete b;
 
 	}

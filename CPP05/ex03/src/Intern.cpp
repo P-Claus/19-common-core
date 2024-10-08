@@ -6,10 +6,11 @@ Intern::Intern(void)
 	std::cout << "Default intern constructor has been called" << std::endl;
 }
 
-//Intern::Intern(const Intern& other)
-//{
-//	std::cout << "Copy constructor for intern has been called" << std::endl;
-//}
+Intern::Intern(const Intern& other)
+{
+	std::cout << "Copy constructor for intern has been called" << std::endl;
+	(void)other;
+}
 
 /*	DESTRUCTOR	*/
 Intern::~Intern(void)
@@ -18,28 +19,32 @@ Intern::~Intern(void)
 }
 
 /*	ASSIGNMENT OPERATOR OVERLOAD	*/
-//Intern& Intern::operator=(const Intern& rhs)
-//{
-//	std::cout << "The assignment operator overload function has been called" << std::endl;
-//	return (*this);
-//}
+Intern& Intern::operator=(const Intern& rhs)
+{
+	std::cout << "The assignment operator overload function has been called" << std::endl;
+	if (this != &rhs)
+	{
+		return (*this);
+	}
+	return (*this);
+}
 
 /*	MISC.	*/
 AForm* Intern::makeShrubbery(const std::string& target)
 {
-	std::cout << "Intern has created a ShrubberyCreationForm"<< std::endl;
+	std::cout << "Intern creates a ShrubberyCreationForm"<< std::endl;
 	return (new ShrubberyCreationForm(target));
 }
 
 AForm* Intern::makeRobotomy(const std::string& target)
 {
-	std::cout << "Intern has created a RobotomyRequestForm"<< std::endl;
+	std::cout << "Intern creates a RobotomyRequestForm"<< std::endl;
 	return (new RobotomyRequestForm(target));
 }
 
 AForm* Intern::makePresident(const std::string& target)
 {
-	std::cout << "Intern has created a PresidentialPardonForm" << std::endl;
+	std::cout << "Intern creates a PresidentialPardonForm" << std::endl;
 	return (new PresidentialPardonForm(target));
 }
 

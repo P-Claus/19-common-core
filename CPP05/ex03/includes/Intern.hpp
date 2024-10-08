@@ -14,23 +14,22 @@
 class Intern 
 {
 	private:
-
+		AForm* makeShrubbery(const std::string& target);
+		AForm* makeRobotomy(const std::string& target);
+		AForm* makePresident(const std::string& target);
 	public:
 		//constructors
 		Intern(void);
-		//Intern(const Intern& other);
+		Intern(const Intern& other);
 
 		//destructor
 		~Intern(void);
 		
 		//assignment operator overload
-	//	Intern& operator=(const Intern& rhs);
+		Intern& operator=(const Intern& rhs);
 
 		//misc.
 		AForm* makeForm(const std::string& formName, const std::string& target);
-		AForm* makeShrubbery(const std::string& target);
-		AForm* makeRobotomy(const std::string& target);
-		AForm* makePresident(const std::string& target);
 };
 
 #endif
