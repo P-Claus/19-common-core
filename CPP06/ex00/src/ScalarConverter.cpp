@@ -1,16 +1,4 @@
 #include "../includes/ScalarConverter.hpp"
-#include <cctype>
-#include <exception>
-#include <iomanip>
-#include <limits>
-#include <stdexcept>
-#include <sstream>
-#include <string>
-
-/*	CONSTRUCTORS	*/
-
-/*	DESTRUCTORS	*/
-
 
 /*	HELPER FUNCTIONS	*/
 bool	isChar(std::string& string)
@@ -25,13 +13,12 @@ bool	isChar(std::string& string)
 
 bool	isInteger(std::string& string)
 {
-	std::stringstream ss;
-
-	int integer;
+	std::stringstream 	ss;
+	int 				integer;
 
 	ss << string;
-
 	ss >> integer;
+
 	if (ss.fail() || !ss.eof())
 		return (false);
 	else
@@ -64,8 +51,8 @@ bool	isDouble(std::string& string)
     double 				f;
 
 	ss << string;
-
 	ss >> f;
+
 	if (ss.fail() || !ss.eof())
 		return (false);
 	else
@@ -74,10 +61,12 @@ bool	isDouble(std::string& string)
 
 void	convertInt(std::string& string, std::stringstream& ss)
 {
-	std::cout << "We have an integer" << std::endl;	
+	//std::cout << "We have an integer" << std::endl;	
 	int	integer; 
+
 	ss << string;
 	ss >> integer;
+
 	if (integer < 32 || integer > 126)
 		std::cout << "char: Non displayable" << std::endl;
 	else
@@ -89,10 +78,12 @@ void	convertInt(std::string& string, std::stringstream& ss)
 
 void	convertDouble(std::string& string, std::stringstream& ss)
 {
-	std::cout << "We have a double" << std::endl;
+	//std::cout << "We have a double" << std::endl;
 	double	db;
+	
 	ss << string;
 	ss >> db;
+	
 	if (string == "nan")
 	{
 		std::cout << "char: impossible" << std::endl;
@@ -129,13 +120,15 @@ void	convertDouble(std::string& string, std::stringstream& ss)
 
 void	convertFloat(std::string& string, std::stringstream& ss)
 {
-	std::cout << "We have a float" << std::endl;
+	//std::cout << "We have a float" << std::endl;
 	std::string		cleanString;
 	float			flt;
 
 	cleanString = string.substr(0, string.size()-1);
+	
 	ss << cleanString;
 	ss >> flt;
+	
 	if (string == "nanf")
 	{
 		std::cout << "char: impossible" << std::endl;
@@ -172,11 +165,11 @@ void	convertFloat(std::string& string, std::stringstream& ss)
 
 void	convertChar(std::string& string)
 {
-	std::cout << "We have a char" << std::endl;
+	//std::cout << "We have a char" << std::endl;
 	char		character;
-
+	
 	character = string[0];
-
+	
 	std::cout << "char: " << character << std::endl;
 	std::cout << "int: " << static_cast<int>(character) << std::endl;
 	std::cout << std::fixed << std::setprecision(1);
@@ -199,7 +192,7 @@ void	ScalarConverter::convert(std::string& string)
 	else if (isDouble(string) == true)
 		convertDouble(string, ss);
 	else
-	std::cout << "Impossible to do a conversion" << std::endl;
+		std::cout << "Impossible to do a conversion" << std::endl;
 
 
 }
