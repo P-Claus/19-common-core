@@ -16,13 +16,13 @@ void	error_check(std::ifstream & inFile)
 
 void	find_and_replace_string(std::ifstream & inFile, char **argv)
 {
-	std::string		filename = argv[1];
+	std::string	filename = argv[1];
 	std::string 	newFilename = filename  + ".replace";
 	std::string 	strToReplace = argv[2];
 	std::string 	strReplaceWith = argv[3];
 	std::size_t 	strPos;
-	std::string		line = "start";
-	std::ofstream	outputFile(newFilename);
+	std::string	line = "start";
+	std::ofstream	outputFile(newFilename.c_str());
 
 	while (true)
 	{
