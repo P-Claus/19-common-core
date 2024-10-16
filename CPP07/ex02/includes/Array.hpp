@@ -37,7 +37,7 @@ class Array
 			std::cout << "size: " << _size << " | address of the array: " << &_array << std::endl;
 		}
 
-		Array operator=(const Array& rhs)
+		Array& operator=(const Array& rhs)
 		{
 			std::cout << "The overloaded assignment operator has been called" << std::endl;
 			if (this != &rhs)
@@ -55,7 +55,7 @@ class Array
 		~Array()
 		{
 			std::cout << "The destructor has been called" << std::endl;
-			delete _array;
+			delete [] _array;
 		}
 
 		//subscript overload
@@ -79,7 +79,7 @@ class Array
 		}
 		
 		//setter
-		void	setData(T index, T data)
+		void	setData(int index, T data)
 		{
 			if (index >= _size)
 				throw Array::indexTooHighException();
@@ -88,12 +88,6 @@ class Array
 			_array[index] = data;	
 		}
 		//misc.
-		void	printContent(void)
-		{
-			for (int i = 0; i < this->_size; i++)
-				std::cout << "#" << i << " -> " << this->_array[i] << std::endl;
-		}
-
 		int	size(void) const
 		{
 			return (_size);
@@ -112,5 +106,11 @@ class Array
 			virtual const char* what() const throw();
 	};
 };
+
+struct complexType
+{
+	int				nb;
+	std::string		name;
+}	typedef complexType;
 
 #endif
