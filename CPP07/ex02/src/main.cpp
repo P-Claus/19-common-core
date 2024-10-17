@@ -16,7 +16,7 @@ const char* Array<T>::indexTooLowException::what() const throw()
 template<typename T>
 const char* Array<T>::MaxIntReachedException::what() const throw()
 {
-	return ("The number you have entered is too high");
+	return ("The number you have entered is too high or too low");
 }
 
 int	main(void)
@@ -59,7 +59,7 @@ int	main(void)
 	std::cout << std::endl;
 
 	try	{
-		Array<int> overflowIntArray(2147483649);
+		Array<int> overflowIntArray(-20);
 	}
 	catch (const std::exception& e)
 	{
