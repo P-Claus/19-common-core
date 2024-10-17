@@ -13,6 +13,12 @@ const char* Array<T>::indexTooLowException::what() const throw()
 	return ("The index you have entered is out of range (too low)");
 }
 
+template<typename T>
+const char* Array<T>::MaxIntReachedException::what() const throw()
+{
+	return ("The number you have entered is too high");
+}
+
 int	main(void)
 {
 	/*	FUNCTIONALITY WITH COMPLEX TYPES -> CREATING AN ARRAY OF STRUCTS	*/
@@ -47,6 +53,20 @@ int	main(void)
 	/*	FUNCTIONALITY WITH SIMPLE TYPES -> CREATING AN ARRAY OF INTEGERS	*/
 
 	std::cout << std::endl;
+	std::cout << " ---------------------------------------------- " << std::endl;
+	std::cout << "| Testing with an integer array of MAX_INT + 1 |" << std::endl;
+	std::cout << " ---------------------------------------------- " << std::endl;
+	std::cout << std::endl;
+
+	try	{
+		Array<int> overflowIntArray(2147483649);
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+	std::cout << std::endl;
 	std::cout << " ----------------------------- " << std::endl;
 	std::cout << "| Testing simple integer type |" << std::endl;
 	std::cout << " ----------------------------- " << std::endl;
@@ -66,8 +86,6 @@ int	main(void)
 	{
 		std::cout << e.what() << std::endl;
 	}
-
-	std::cout << std::endl;
 
 	Array<int> intArray(10);
 

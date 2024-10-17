@@ -1,6 +1,7 @@
 #ifndef ARRAY_HPP
 #define ARRAY_HPP
 
+#include <climits>
 #include <iostream>
 #include <stdexcept>
 #include <string>
@@ -23,6 +24,8 @@ class Array
 		Array(size_t size): _size(size)
 		{
 			std::cout << "Parameter constructor has been called" << std::endl;
+			if (size > INT_MAX)
+				throw Array::MaxIntReachedException();
 			_array = new T[_size];
 			std::cout << "size: " << _size << " | address of the array: " << &_array << std::endl;
 		}
@@ -101,6 +104,12 @@ class Array
 	};
 
 	class indexTooLowException: public std::exception
+	{
+		public:
+			virtual const char* what() const throw();
+	};
+
+	class MaxIntReachedException: public std::exception
 	{
 		public:
 			virtual const char* what() const throw();
