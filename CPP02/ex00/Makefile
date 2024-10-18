@@ -4,8 +4,8 @@
 
 NAME			= ex00 
 
-CC				= c++
-RM				= rm -rf
+CC			= c++
+RM			= rm -rf
 CFLAGS			= -Wall -Werror -Wextra -std=c++98
 
 MKDIR			= mkdir -p
