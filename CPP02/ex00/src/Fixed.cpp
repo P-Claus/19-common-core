@@ -19,7 +19,8 @@ Fixed::Fixed(const Fixed& other)
 Fixed& Fixed::operator=(const Fixed& rhs)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-	_fixedPointNb = rhs._fixedPointNb;
+	if (this != &rhs)
+		_fixedPointNb = rhs._fixedPointNb;
 	return (*this);
 }
 
