@@ -9,16 +9,26 @@
 #include <algorithm>
 #include <cstdlib>
 #include <ctime>
+#include <exception>
 
 class Span
 {
 	private:
 		std::vector<int>		_intSpan;
 		size_t					_capacity;
+
+		//default constructor
 		Span();
+
 	public:
-		//constructors
+		//parameter constructor
 		Span(size_t N);
+
+		//copy constructor
+		Span(const Span& other);
+
+		//copy assignment overload
+		Span& operator=(const Span& rhs);
 
 		//destructor
 		~Span();
