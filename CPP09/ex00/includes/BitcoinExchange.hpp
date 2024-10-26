@@ -6,6 +6,8 @@
 #include <fstream>
 #include <sstream>
 #include <map>
+#include <cstdlib>
+#include <cstddef>
 
 class DateAndValue
 {
@@ -42,6 +44,7 @@ class DateAndValue
 
 extern std::map<std::string, float> dateAndValueMap;
 
-void	exit_handler(std::string& error_message);
+std::string 	findClosestDateBefore(const std::string& targetDate);
+void			exit_handler(std::string& error_message);
 
 #endif

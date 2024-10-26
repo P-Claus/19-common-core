@@ -1,18 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: pieter <pclaus@student.s19.be>             +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/25 10:52:25 by pieter            #+#    #+#             */
-/*   Updated: 2024/10/26 15:04:32 by pclaus           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../includes/BitcoinExchange.hpp"
-#include <cstdlib>
-#include <cstddef>
 
 std::map<std::string, float> dateAndValueMap;
 
@@ -91,19 +77,6 @@ std::string findClosestDateBefore(const std::string& targetDate)
     if (it == dateAndValueMap.end() || it->first != targetDate)
         --it;
     return (it->first);
-}
-
-void DateAndValue::printOutput() {
-    std::string		dateString = getDate();
-    float 			valueFloat = getValue();
-
-    if (dateAndValueMap.find(dateString) != dateAndValueMap.end())
-        std::cout << dateString << " => " << valueFloat << " = " << dateAndValueMap[dateString] * valueFloat << std::endl;
-    else
-    {
-        std::string closestDateString = findClosestDateBefore(dateString);
-		std::cout << dateString << " => " << valueFloat << " = " << dateAndValueMap[closestDateString] * valueFloat << std::endl;
-    }
 }
 
 void	parseLine(std::string& data)
