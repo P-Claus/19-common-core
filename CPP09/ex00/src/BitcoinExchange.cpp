@@ -1,7 +1,7 @@
 #include "../includes/BitcoinExchange.hpp"
 
 /*	DEFAULT CONSTRUCTOR	*/
-DateAndValue::DateAndValue(): _date(NULL), _value(0)
+DateAndValue::DateAndValue(): _date(""), _value(0)
 {
 	//std::cout << "The default constructor has been called" << std::endl;
 }

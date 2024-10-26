@@ -6,11 +6,12 @@
 /*   By: pieter <pclaus@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 10:52:25 by pieter            #+#    #+#             */
-/*   Updated: 2024/10/26 14:48:45 by pieter           ###   ########.fr       */
+/*   Updated: 2024/10/26 15:04:32 by pclaus           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/BitcoinExchange.hpp"
+#include <cstdlib>
 #include <cstddef>
 
 std::map<std::string, float> dateAndValueMap;
@@ -216,7 +217,7 @@ void	read_from_db()
 			token = line.substr(0, pos);
 			date = token;
 			token = line.substr(11, 11);
-			value = stof(token);
+			value = handle_float(token);
 		}
 		dateAndValueMap[date] = value;
 	}
