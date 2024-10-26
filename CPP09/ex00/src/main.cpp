@@ -6,7 +6,7 @@
 /*   By: pieter <pclaus@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 10:52:25 by pieter            #+#    #+#             */
-/*   Updated: 2024/10/25 15:59:51 by pieter           ###   ########.fr       */
+/*   Updated: 2024/10/26 14:48:45 by pieter           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,10 @@ int		handle_int(std::string& string)
 	return (integer);
 }
 
-int		handle_float(std::string& string)
+float		handle_float(std::string& string)
 {
 	std::stringstream	ss;
-	int					floatNb;
+	float				floatNb;
 
 	ss << string;
 	ss >> floatNb;
@@ -89,7 +89,7 @@ std::string findClosestDateBefore(const std::string& targetDate)
         return "No earlier date available";
     if (it == dateAndValueMap.end() || it->first != targetDate)
         --it;
-    return it->first;
+    return (it->first);
 }
 
 void DateAndValue::printOutput() {
@@ -123,7 +123,6 @@ void	parseLine(std::string& data)
 
 	std::string		date = data.substr(0, delimPos -1);
 	std::string		nb = data.substr(delimPos + 2, data.length());
-
 	std::string		year = date.substr(0, 4);
 	if (isInteger(year) == true)
 	{
@@ -157,7 +156,7 @@ void	parseLine(std::string& data)
 		}
 	}
 
-	dateAndValueObj._date = date; 
+	dateAndValueObj.setDate(date); 
 
 	if (isInteger(nb) == true)
 		convertedNb = handle_int(nb);
@@ -175,9 +174,9 @@ void	parseLine(std::string& data)
 		return ;
 	}
 
-	dateAndValueObj._value = stof(nb);
+	dateAndValueObj.setValue(convertedNb);
 
-	if (dateAndValueObj._date != "" && dateAndValueObj._value)
+	if (dateAndValueObj.getDate() != "" && dateAndValueObj.getValue())
 		dateAndValueObj.printOutput();
 }
 

@@ -1,11 +1,26 @@
 #include "../includes/BitcoinExchange.hpp"
 
 /*	DEFAULT CONSTRUCTOR	*/
-DateAndValue::DateAndValue()
+DateAndValue::DateAndValue(): _date(NULL), _value(0)
 {
 	//std::cout << "The default constructor has been called" << std::endl;
 }
 
+/*	COPY CONSTRUCTOR	*/
+/*
+DateAndValue::DateAndValue(const DateAndValue& other)
+{
+
+}
+*/
+/*	COPY ASSIGNMENT OVERLOAD	*/
+/*
+DateAndValue DateAndValue::operator=(const DateAndValue &rhs)
+{
+
+	return (*this);
+}
+*/
 /*	DESTRUCTOR	*/
 DateAndValue::~DateAndValue()
 {
@@ -21,4 +36,15 @@ std::string& DateAndValue::getDate()
 float& DateAndValue::getValue()
 {
 	return (_value);
+}
+
+/*	SETTERS	*/
+void	DateAndValue::setDate(std::string& date)
+{
+	_date = date;
+}
+
+void	DateAndValue::setValue(float value)
+{
+	_value = value;
 }

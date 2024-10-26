@@ -10,9 +10,9 @@
 class DateAndValue
 {
 	private:
-	public:
 		std::string		_date;
 		float			_value;
+	public:
 		//constructor
 		DateAndValue();
 
@@ -33,7 +33,7 @@ class DateAndValue
 		float& getValue(void);
 	
 		//setters
-		void setDate(std::string date);
+		void setDate(std::string& date);
 		void setValue(float value);
 
 		//misc.
