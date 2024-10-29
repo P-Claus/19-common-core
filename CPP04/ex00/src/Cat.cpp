@@ -18,7 +18,8 @@ Cat::Cat (const Cat& other)
 
 Cat &Cat::operator=(const Cat &rhs)
 {
-	_type = rhs._type;
+	if (this != &rhs)
+		_type = rhs._type;
 	return (*this);
 }
 

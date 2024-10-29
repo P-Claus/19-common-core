@@ -21,7 +21,8 @@ Animal::Animal(const Animal& other)
 /*	COPY ASSIGNMENT OVERLOAD	*/
 Animal &Animal::operator=(const Animal &rhs)
 {
-	_type = rhs._type;
+	if (this != &rhs)
+		_type = rhs._type;
 	return (*this);
 }
 

@@ -3,12 +3,24 @@
 WrongCat::WrongCat(void)
 {
 	std::cout << "A wrong cat is born..." << std::endl;
-	setType("Wrong");
+	setType("WrongCat");
 }
 
 WrongCat::~WrongCat(void)
 {
 	std::cout << "A wrong cat has died..." << std::endl;
+}
+
+WrongCat::WrongCat(const WrongCat& other)
+{
+	_type = other._type;
+}
+
+WrongCat &WrongCat::operator=(const WrongCat &rhs)
+{
+	if (this != &rhs)
+		_type = rhs._type;
+	return (*this);
 }
 
 void	WrongCat::makeSound() const
