@@ -11,6 +11,17 @@ Dog::~Dog(void)
 	std::cout << "A dog has died..." << std::endl;
 }
 
+Dog::Dog(const Dog& other)
+{
+	*this = other;
+}
+
+Dog &Dog::operator=(const Dog &rhs)
+{
+	_type = rhs._type;
+	return (*this);
+}
+
 void	Dog::makeSound() const
 {
 	std::cout << "I am the one who barks" << std::endl;
