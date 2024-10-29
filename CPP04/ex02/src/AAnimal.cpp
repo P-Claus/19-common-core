@@ -10,6 +10,11 @@ AAnimal::~AAnimal(void)
 	std::cout << "An animal has died..." << std::endl;
 }
 
+AAnimal::AAnimal(const AAnimal& other)
+{
+	_type = other._type;
+}
+
 AAnimal& AAnimal::operator=(const AAnimal &rhs)
 {
 	if (this != &rhs)
@@ -19,9 +24,7 @@ AAnimal& AAnimal::operator=(const AAnimal &rhs)
 
 std::string AAnimal::getType(void) const
 {
-	std::string	string;
-	string = this->_type;
-	return (string);
+	return (this->_type);
 }
 
 void	AAnimal::setType(std::string string)
