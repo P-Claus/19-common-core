@@ -13,7 +13,7 @@ Dog::~Dog(void)
 
 Dog::Dog(const Dog& other)
 {
-	*this = other;
+	_type = other._type;
 }
 
 Dog &Dog::operator=(const Dog &rhs)
