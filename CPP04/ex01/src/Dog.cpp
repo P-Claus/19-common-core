@@ -15,7 +15,7 @@ Dog::~Dog(void)
 
 Dog::Dog(const Dog& other)
 {
-	std::cout << "A dog is born..." << std::endl;
+	std::cout << "A dog is copied..." << std::endl;
 	_dogBrain = new Brain();
 	*_dogBrain = *(other._dogBrain);
 }

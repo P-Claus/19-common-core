@@ -4,7 +4,10 @@
 
 int	main(void)
 {
-	/*
+	std::cout << std::endl;;
+	std::cout << "TESTS DEEP COPY FUNCTIONALITY" << std::endl;
+	std::cout << std::endl;;
+
 	//	TESTS TO SHOW DEEP COPY FUNCTIONALITY
 	const Cat *originalCat = new Cat();
     originalCat->getAddr();
@@ -27,7 +30,10 @@ int	main(void)
 
 	delete originalDog;
 	delete copiedDog;
-	*/
+
+	std::cout << std::endl;;
+	std::cout << "TESTS FOR ASSIGMNENT OPERATOR FUNCTIONALITY" << std::endl;
+	std::cout << std::endl;;
 	
 	//	TESTS TO SHOW ASSIGNMENT OPERATOR FUNCTIONALITY
 	Cat *firstCat = new Cat();
@@ -59,9 +65,9 @@ int	main(void)
 	delete secondDog;
 
 
-
-	/*
-
+	std::cout << std::endl;;
+	std::cout << "TESTS WITH ARRAY" << std::endl;
+	std::cout << std::endl;;
 
 	//	DECLARE ARRAY AND FILL WITH OBJECTS	 
 	Animal	*animal_arr[4];
@@ -73,17 +79,5 @@ int	main(void)
 
 	for (int i = 0; i < 4; i++)
 		delete animal_arr[i];
-*/
 
-	/*    
-	Cat firstCat;
-    firstCat.getAddr();                   // Address of first cat's brain
-    
-    Cat secondCat;
-    secondCat = firstCat;                 // Use assignment operator to copy the first cat into the second
-    secondCat.getAddr();
-
-
-	delete originalCat;
-	*/
 }

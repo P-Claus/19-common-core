@@ -15,7 +15,7 @@ Cat::~Cat(void)
 
 Cat::Cat(const Cat& other)
 {
-	std::cout << "A cat is born..." << std::endl;
+	std::cout << "A cat is copied..." << std::endl;
 	_catBrain = new Brain();
 	*_catBrain = *(other._catBrain);
 }
