@@ -35,9 +35,6 @@ int	main(void)
 	std::cout << "TESTS FOR ASSIGMNENT OPERATOR FUNCTIONALITY" << std::endl;
 	std::cout << std::endl;;
 	
-	std::cout << std::endl;
-	std::cout << std::endl;
-	
 	//	TESTS TO SHOW ASSIGNMENT OPERATOR FUNCTIONALITY
 	Cat *firstCat = new Cat();
 	firstCat->getAddr();

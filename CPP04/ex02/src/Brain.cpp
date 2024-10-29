@@ -13,7 +13,8 @@ Brain::~Brain(void)
 
 Brain::Brain(const Brain& other)
 {
-	*this = other;
+	for (int i = 0; i < 100; i++)
+		_ideas[i] = other._ideas[i];	
 }
 
 Brain& Brain::operator=(const Brain& rhs)
@@ -21,7 +22,7 @@ Brain& Brain::operator=(const Brain& rhs)
 	if (this != &rhs)
 	{
 		for (int i = 0; i < 100; i++)
-			this->ideas[i] = rhs.ideas[i];
+			_ideas[i] = rhs._ideas[i];
 	}
 	return (*this);
 }
