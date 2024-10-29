@@ -7,7 +7,7 @@
 class Brain
 {
 	private:
-		std::string	ideas[100];
+		std::string	_ideas[100];
 	public:
 		//constructor
 		Brain(void);
