@@ -13,7 +13,7 @@ Cat::~Cat(void)
 	std::cout << "A cat has died..." << std::endl;
 }
 
-Cat::Cat(const Cat& other)
+Cat::Cat(const Cat& other): Animal(other)
 {
 	std::cout << "A cat is copied..." << std::endl;
 	_catBrain = new Brain();

@@ -13,7 +13,7 @@ Dog::~Dog(void)
 	std::cout << "A dog has died..." << std::endl;
 }
 
-Dog::Dog(const Dog& other)
+Dog::Dog(const Dog& other): Animal(other)
 {
 	std::cout << "A dog is copied..." << std::endl;
 	_dogBrain = new Brain();

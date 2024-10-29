@@ -11,7 +11,7 @@ WrongCat::~WrongCat(void)
 	std::cout << "A wrong cat has died..." << std::endl;
 }
 
-WrongCat::WrongCat(const WrongCat& other)
+WrongCat::WrongCat(const WrongCat& other): WrongAnimal(other)
 {
 	_type = other._type;
 }

@@ -11,7 +11,7 @@ Cat::~Cat(void)
 	std::cout << "A cat has died..." << std::endl;
 }
 
-Cat::Cat (const Cat& other)
+Cat::Cat (const Cat& other): Animal(other)
 {
 	_type = other._type;
 }

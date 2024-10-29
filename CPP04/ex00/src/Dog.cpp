@@ -11,7 +11,7 @@ Dog::~Dog(void)
 	std::cout << "A dog has died..." << std::endl;
 }
 
-Dog::Dog(const Dog& other)
+Dog::Dog(const Dog& other): Animal(other)
 {
 	_type = other._type;
 }
