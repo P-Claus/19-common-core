@@ -8,5 +8,6 @@
 #include <cstdlib>
 #include <sstream>
 #include <climits>
+#include <ctime>
 
 #endif

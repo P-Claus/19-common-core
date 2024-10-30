@@ -1,4 +1,30 @@
 #include "../includes/PmergeMe.hpp"
+#include <climits>
+#include <ctime>
+
+
+void	printVectorBefore(std::vector<int>& numbersVector)
+{
+	std::vector<int>::iterator	it;
+
+	it = numbersVector.begin();
+	std::cout << "Before sorting: ";
+	for (std::vector<int>::iterator it = numbersVector.begin(); it != numbersVector.end(); it++)
+		std::cout << *it << " ";
+	std::cout << std::endl;
+	std::cout << std::endl;
+}
+
+void	printVector(std::vector<int>& numbersVector)
+{
+	std::vector<int>::iterator	it;
+
+	it = numbersVector.begin();
+	std::cout << "After sorting: ";
+	for (std::vector<int>::iterator it = numbersVector.begin(); it != numbersVector.end(); it++)
+		std::cout << *it << " ";
+	std::cout << std::endl;
+}
 
 int	exit_handler(std::string errorMessage)
 {
@@ -31,9 +57,11 @@ int		handle_int(std::string& string)
 	return (integer);
 }
 
-void	intError(int nb)
+void	intError(std::string& token)
 {
-	if (nb < 0 || nb > INT_MAX)
+	if (isInteger(token) == false)
+		exit_handler("Error: numbers must be integers");
+	else if (handle_int(token) < 0)
 		exit_handler("Error: numbers must be positive integers");
 }
 
@@ -46,18 +74,13 @@ void	putDataInVector(std::string givenString, std::vector<int>& numbersVector)
 	while ((pos = givenString.find(delim)) != std::string::npos)  
 	{
 		token = givenString.substr(0, pos);
-
-		intError(handle_int(token));
+		intError(token);
 		numbersVector.push_back(handle_int(token));
-		std::cout << "The last element in the vector is: " << numbersVector.back() << std::endl;
-		std::cout << "The size of the vector is: " << numbersVector.size() << std::endl;
-
 		givenString.erase(0, pos + delim.length());
 	}
-	token = givenString.substr(0, 1);
+	token = givenString.substr(0, pos);
+	intError(token);
 	numbersVector.push_back(handle_int(token));
-	std::cout << "The last element in the vector is: " << numbersVector.back() << std::endl;
-	std::cout << "The size of the vector is: " << numbersVector.size() << std::endl;
 }
 
 void	putDataInDeque(std::string givenString, std::deque<int>& numbersDeque)
@@ -69,19 +92,75 @@ void	putDataInDeque(std::string givenString, std::deque<int>& numbersDeque)
 	while ((pos = givenString.find(delim)) != std::string::npos)  
 	{
 		token = givenString.substr(0, pos);
-
-		intError(handle_int(token));
+		intError(token);
 		numbersDeque.push_back(handle_int(token));
-		std::cout << "The last element in the deque is: " << numbersDeque.back() << std::endl;
-		std::cout << "The size of the deque is: " << numbersDeque.size() << std::endl;
-
 		givenString.erase(0, pos + delim.length());
 	}
-	token = givenString.substr(0, 1);
+	token = givenString.substr(0, pos);
+	intError(token);
 	numbersDeque.push_back(handle_int(token));
-	std::cout << "The last element in the deque is: " << numbersDeque.back() << std::endl;
-	std::cout << "The size of the deque is: " << numbersDeque.size() << std::endl;
+
 }
+
+void	mergeVector(std::vector<int>& leftVector, std::vector<int>& rightVector, std::vector<int>& numbersVector)
+{
+	int	leftSize = leftVector.size();
+	int	rightSize = rightVector.size();
+
+	int l = 0;
+	int	r = 0;
+
+	numbersVector.clear();
+
+	while (l < leftSize && r < rightSize)
+	{
+		if (leftVector[l] < rightVector[r])
+		{
+			numbersVector.push_back(leftVector.at(l));
+			l++;
+		}
+		else
+		{
+			numbersVector.push_back(rightVector.at(r));
+			r++;
+		}
+	}
+	while (l < leftSize)
+	{
+		numbersVector.push_back(leftVector.at(l));
+		l++;
+	}
+	while (r < rightSize)
+	{
+		numbersVector.push_back(rightVector.at(r));
+		r++;
+	}
+}
+
+void	mergeSortVector(std::vector<int>& numbersVector)
+{
+	int	length = numbersVector.size();
+
+	if (length <= 1)
+		return ;
+
+	int	middle = length / 2;
+
+	std::vector<int>	leftVector;
+	std::vector<int>	rightVector;
+
+	for (int i = 0; i < length; i++)
+	{
+		if (i < middle)
+			leftVector.push_back(numbersVector.at(i));
+		else
+			rightVector.push_back(numbersVector.at(i));
+	}
+	mergeSortVector(leftVector);
+	mergeSortVector(rightVector);
+	mergeVector(leftVector, rightVector, numbersVector);
+}
+
 
 int	main(int argc, char **argv)
 {
@@ -93,8 +172,20 @@ int	main(int argc, char **argv)
 	std::vector<int>	numbersVector;
 	std::deque<int>		numbersDeque;
 
+	struct timespec start, end;
+	clock_gettime(CLOCK_REALTIME, &start);
+
+
 	putDataInVector(givenString, numbersVector);
+	printVectorBefore(numbersVector);
 	putDataInDeque(givenString, numbersDeque);
-	std::cout << "The size of the vector from the main function is: " << numbersVector.size() << std::endl;
-	std::cout << "The size of the deque from the main function is: " << numbersDeque.size() << std::endl;
+	mergeSortVector(numbersVector);
+	printVector(numbersVector);
+
+	clock_gettime(CLOCK_REALTIME, &end);
+
+	double duration = (end.tv_sec - start.tv_sec) + (end.tv_nsec - start.tv_nsec) / 1e9;
+    std::cout << "someFunction() took " << duration << " seconds to execute." << std::endl;
+
+
 }
