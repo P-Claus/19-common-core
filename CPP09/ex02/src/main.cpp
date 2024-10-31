@@ -112,7 +112,7 @@ void	putDataInDeque(std::string givenString, std::deque<int>& numbersDeque)
 	numbersDeque.push_back(handle_int(token));
 
 }
-
+/*
 void	mergeVector(std::vector<int>& leftVector, std::vector<int>& rightVector, std::vector<int>& numbersVector)
 {
 	int	leftSize = leftVector.size();
@@ -147,31 +147,54 @@ void	mergeVector(std::vector<int>& leftVector, std::vector<int>& rightVector, st
 		r++;
 	}
 }
+*/
 
-void	mergeSortVector(std::vector<int>& numbersVector)
+void binaryInsert(std::vector<int>& sortedList, int element)
 {
-	int	length = numbersVector.size();
-
-	if (length <= 1)
-		return ;
-
-	int	middle = length / 2;
-
-	std::vector<int>	leftVector;
-	std::vector<int>	rightVector;
-
-	for (int i = 0; i < length; i++)
-	{
-		if (i < middle)
-			leftVector.push_back(numbersVector.at(i));
-		else
-			rightVector.push_back(numbersVector.at(i));
-	}
-	mergeSortVector(leftVector);
-	mergeSortVector(rightVector);
-	mergeVector(leftVector, rightVector, numbersVector);
+	std::vector<int>::iterator it = std::lower_bound(sortedList.begin(), sortedList.end(), element);
+    sortedList.insert(it, element);
 }
 
+void mergeSortedVectors(std::vector<int>& smallerList, std::vector<int>& largerList, std::vector<int>& sortedVector)
+{
+    sortedVector = smallerList;
+    for (std::vector<int>::iterator it = largerList.begin(); it != largerList.end(); ++it)
+        binaryInsert(sortedVector, *it);
+}
+
+void fordJohnsonSort(std::vector<int>& numbersVector)
+{
+    int length = numbersVector.size();
+    if (length <= 1) return;
+
+    std::vector<int> smallerElements, largerElements;
+
+    for (int i = 0; i < length; i += 2)
+	{
+        if (i + 1 < length)
+		{
+            if (numbersVector[i] < numbersVector[i + 1])
+			{
+                smallerElements.push_back(numbersVector[i]);
+                largerElements.push_back(numbersVector[i + 1]);
+            } else {
+                smallerElements.push_back(numbersVector[i + 1]);
+                largerElements.push_back(numbersVector[i]);
+            }
+        } else {
+            smallerElements.push_back(numbersVector[i]);
+        }
+    }
+    fordJohnsonSort(smallerElements);
+
+    std::vector<int> sortedResult;
+
+    mergeSortedVectors(smallerElements, largerElements, sortedResult);
+
+    numbersVector = sortedResult;
+}
+
+/*
 void	mergeDeque(std::deque<int>& leftDeque, std::deque<int>& rightDeque, std::deque<int>& numbersDeque)
 {
 	int	leftSize = leftDeque.size();
@@ -230,7 +253,7 @@ void	mergeSortDeque(std::deque<int>& numbersDeque)
 	mergeSortDeque(rightDeque);
 	mergeDeque(leftDeque, rightDeque, numbersDeque);
 }
-
+*/
 
 int	main(int argc, char **argv)
 {
@@ -240,27 +263,27 @@ int	main(int argc, char **argv)
 	std::string givenString = argv[1];  
 
 	std::vector<int>	numbersVector;
-	std::deque<int>		numbersDeque;
+	//std::deque<int>		numbersDeque;
 
 	struct timespec start, end;
 	clock_gettime(CLOCK_REALTIME, &start);
 
 	putDataInVector(givenString, numbersVector);
-	//printVectorBefore(numbersVector);
-	mergeSortVector(numbersVector);
-	//printVector(numbersVector);
+	printVectorBefore(numbersVector);
+	fordJohnsonSort(numbersVector);
+	printVector(numbersVector);
 
 	clock_gettime(CLOCK_REALTIME, &end);
 	double duration = (end.tv_sec - start.tv_sec) + (end.tv_nsec - start.tv_nsec) / 1e9;
 	std::cout << "Sorting a vector of [" << numbersVector.size() << "] elements took " << duration << " seconds." << std::endl;
 
-	clock_gettime(CLOCK_REALTIME, &start);
+	//clock_gettime(CLOCK_REALTIME, &start);
 
-	putDataInDeque(givenString, numbersDeque);
-	mergeSortDeque(numbersDeque);
+	//putDataInDeque(givenString, numbersDeque);
+	//mergeSortDeque(numbersDeque);
 	//printDeque(numbersDeque);
 
-	clock_gettime(CLOCK_REALTIME, &end);
-	duration = (end.tv_sec - start.tv_sec) + (end.tv_nsec - start.tv_nsec) / 1e9;
-	std::cout << "Sorting a deque of [" << numbersDeque.size() << "] elements took " << duration << " seconds." << std::endl;
+	//clock_gettime(CLOCK_REALTIME, &end);
+	//duration = (end.tv_sec - start.tv_sec) + (end.tv_nsec - start.tv_nsec) / 1e9;
+	//std::cout << "Sorting a deque of [" << numbersDeque.size() << "] elements took " << duration << " seconds." << std::endl;
 }
