@@ -10,6 +10,14 @@
 #include <climits>
 #include <ctime>
 
+void	intError(std::string& token);
+int		handle_int(std::string& string);
+void	printVectorBefore(std::vector<int>& numbersVector);
+void	printVector(std::vector<int>& numbersVector);
+void	printDeque(std::deque<int>& numbersDeque);
+bool	isInteger(std::string& string);
+int		exit_handler(std::string errorMessage);
+
 template <typename T>
 void insertElement(T& sortedList, int element)
 {
@@ -57,6 +65,25 @@ void sort(T& numbers)
     mergeSortedData(smallerElements, largerElements, sortedResult);
 
     numbers = sortedResult;
+}
+
+template <typename T>
+void	putDataInContainer(std::string givenString, T& numbers)
+{
+	std::string 	delim = " ";  
+	size_t 			pos = 0;  
+	std::string 	token;  
+	
+	while ((pos = givenString.find(delim)) != std::string::npos)  
+	{
+		token = givenString.substr(0, pos);
+		intError(token);
+		numbers.push_back(handle_int(token));
+		givenString.erase(0, pos + delim.length());
+	}
+	token = givenString.substr(0, pos);
+	intError(token);
+	numbers.push_back(handle_int(token));
 }
 
 #endif
