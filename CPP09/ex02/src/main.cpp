@@ -26,6 +26,17 @@ void	printVector(std::vector<int>& numbersVector)
 	std::cout << std::endl;
 }
 
+void	printDeque(std::deque<int>& numbersDeque)
+{
+	std::deque<int>::iterator	it;
+
+	it = numbersDeque.begin();
+	std::cout << "Deque after sorting: ";
+	for (std::deque<int>::iterator it = numbersDeque.begin(); it != numbersDeque.end(); it++)
+		std::cout << *it << " ";
+	std::cout << std::endl;
+}
+
 int	exit_handler(std::string errorMessage)
 {
 	std::cerr << errorMessage << std::endl;
@@ -161,6 +172,65 @@ void	mergeSortVector(std::vector<int>& numbersVector)
 	mergeVector(leftVector, rightVector, numbersVector);
 }
 
+void	mergeDeque(std::deque<int>& leftDeque, std::deque<int>& rightDeque, std::deque<int>& numbersDeque)
+{
+	int	leftSize = leftDeque.size();
+	int	rightSize = rightDeque.size();
+
+	int l = 0;
+	int	r = 0;
+
+	numbersDeque.clear();
+
+	while (l < leftSize && r < rightSize)
+	{
+		if (leftDeque[l] < rightDeque[r])
+		{
+			numbersDeque.push_back(leftDeque.at(l));
+			l++;
+		}
+		else
+		{
+			numbersDeque.push_back(rightDeque.at(r));
+			r++;
+		}
+	}
+	while (l < leftSize)
+	{
+		numbersDeque.push_back(leftDeque.at(l));
+		l++;
+	}
+	while (r < rightSize)
+	{
+		numbersDeque.push_back(rightDeque.at(r));
+		r++;
+	}
+}
+
+void	mergeSortDeque(std::deque<int>& numbersDeque)
+{
+	int	length = numbersDeque.size();
+
+	if (length <= 1)
+		return ;
+
+	int	middle = length / 2;
+
+	std::deque<int>	leftDeque;
+	std::deque<int>	rightDeque;
+
+	for (int i = 0; i < length; i++)
+	{
+		if (i < middle)
+			leftDeque.push_back(numbersDeque.at(i));
+		else
+			rightDeque.push_back(numbersDeque.at(i));
+	}
+	mergeSortDeque(leftDeque);
+	mergeSortDeque(rightDeque);
+	mergeDeque(leftDeque, rightDeque, numbersDeque);
+}
+
 
 int	main(int argc, char **argv)
 {
@@ -175,17 +245,22 @@ int	main(int argc, char **argv)
 	struct timespec start, end;
 	clock_gettime(CLOCK_REALTIME, &start);
 
-
 	putDataInVector(givenString, numbersVector);
-	printVectorBefore(numbersVector);
-	putDataInDeque(givenString, numbersDeque);
+	//printVectorBefore(numbersVector);
 	mergeSortVector(numbersVector);
-	printVector(numbersVector);
+	//printVector(numbersVector);
 
 	clock_gettime(CLOCK_REALTIME, &end);
-
 	double duration = (end.tv_sec - start.tv_sec) + (end.tv_nsec - start.tv_nsec) / 1e9;
-    std::cout << "someFunction() took " << duration << " seconds to execute." << std::endl;
+	std::cout << "Sorting a vector of [" << numbersVector.size() << "] elements took " << duration << " seconds." << std::endl;
 
+	clock_gettime(CLOCK_REALTIME, &start);
 
+	putDataInDeque(givenString, numbersDeque);
+	mergeSortDeque(numbersDeque);
+	//printDeque(numbersDeque);
+
+	clock_gettime(CLOCK_REALTIME, &end);
+	duration = (end.tv_sec - start.tv_sec) + (end.tv_nsec - start.tv_nsec) / 1e9;
+	std::cout << "Sorting a deque of [" << numbersDeque.size() << "] elements took " << duration << " seconds." << std::endl;
 }
