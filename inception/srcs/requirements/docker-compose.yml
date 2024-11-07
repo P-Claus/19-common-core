@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+
+  mariadb:
+    build:
+      context: ./mariadb
+      dockerfile: Dockerfile
+    image: custom-mariadb-image
+    restart: always
+    ports: 
+      - "3306:3306"
+    volumes:
+      - mariadb-volume:/var/lib/mysql
+
+volumes:
+  mariadb-volume:
