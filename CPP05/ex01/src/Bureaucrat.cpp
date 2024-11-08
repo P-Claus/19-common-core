@@ -4,23 +4,23 @@
 /*	EXCEPTIONS	*/
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("The grade you have entered is too high");
+	return ("The grade is too high");
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("The grade you have entered is too low");
+	return ("The grade is too low");
 }
 
 /*	CONSTRUCTORS	*/
 Bureaucrat::Bureaucrat(void): _name("bot"), _grade(150)
 {
-	std::cout << "Default constructor has been called for " << this->_name << std::endl;
+	std::cout << "Default constructor has been called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string name): _name(name), _grade(150)
 {
-	std::cout << "String constructor has been called for " << this->_name << std::endl;
+	std::cout << "String constructor has been called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(int grade): _name("bot"), _grade(grade)
@@ -30,7 +30,7 @@ Bureaucrat::Bureaucrat(int grade): _name("bot"), _grade(grade)
 	else if (grade > 150)
 		throw GradeTooLowException();
 	else
-		std::cout << "Int constructor has been called for " << this->_name << std::endl;
+		std::cout << "Int constructor has been called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade) 
@@ -40,12 +40,12 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 	else if (grade > 150)
 		throw GradeTooLowException();
 	else
-		std::cout << "Full constructor has been called for " << this->_name << std::endl;
+		std::cout << "Full parameter constructor has been called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other): _name(other.getName() + "_copy"), _grade(other._grade)
 {
-	std::cout << "Copy constructor has been called for " << this->_name << std::endl;
+	std::cout << "Copy constructor has been called" << std::endl;
 }
 
 /*	DESTRUCTORS	*/
@@ -60,7 +60,7 @@ const std::string Bureaucrat::getName(void) const
 	return (_name);
 }
 
-int	Bureaucrat::getGrade(void)
+int	Bureaucrat::getGrade(void) const
 {
 	return (_grade);
 }

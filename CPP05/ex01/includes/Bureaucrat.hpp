@@ -29,7 +29,7 @@ class	Bureaucrat
 
 		//getters
 		const std::string 	getName(void) const;
-		int					getGrade(void);
+		int					getGrade(void) const;
 
 		//change grade
 		void				incrementGrade(int	grade);

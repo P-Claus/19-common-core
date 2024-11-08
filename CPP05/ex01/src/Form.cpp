@@ -69,7 +69,7 @@ int	Form::getReqExecGrade(void) const
 }
 
 /*	SIGN FUNCTION	*/
-void	Form::beSigned(Bureaucrat& bureaucrat)
+void	Form::beSigned(Bureaucrat& bureaucrat) 
 {
 	if (bureaucrat.signForm(*this) == 1)
 		throw GradeTooLowException();
