@@ -28,7 +28,7 @@ class ShrubberyCreationForm : public AForm
 		ShrubberyCreationForm& operator=(const ShrubberyCreationForm& rhs);
 
 		//misc.
-		virtual void		execute(Bureaucrat const& executor) const;
+		void		execute(Bureaucrat const& executor) const;
 };
 
 std::ostream& operator<<(std::ostream& output, ShrubberyCreationForm& rhs);
