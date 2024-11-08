@@ -19,34 +19,17 @@ int	main(void)
 		AForm* a = intern.makeForm("shrubbery creation", "japanese garden");
 		delete a;
 
+		AForm* c = intern.makeForm("robotomy request", "Optimus Prime");
+		delete c;
+
 		AForm* b = intern.makeForm("lol", "Iraq");
 		delete b;
 
 	}
 
-	catch (const Bureaucrat::GradeTooHighException& e)
+	catch (std::exception & e)
 	{
-		std::cout << e.what() << std::endl;
-	}
-	catch (const Bureaucrat::GradeTooLowException& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	catch (const AForm::GradeTooHighException& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	catch (const AForm::GradeTooLowException& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	catch (const AForm::FormNotSignedException& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	catch(const AForm::FormAlreadySignedException& e)
-	{
-		std::cout << e.what() << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 
 }

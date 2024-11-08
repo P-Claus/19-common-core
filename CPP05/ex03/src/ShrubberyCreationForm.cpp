@@ -53,7 +53,7 @@ void	ShrubberyCreationForm::execute(Bureaucrat const& executor) const
 		throw (AForm::FormNotSignedException());
 	else
 	{
-		std::ofstream outfile (_target + "_shrubbery");
+		std::ofstream outfile ((_target + "_shrubbery").c_str());
 
 		outfile << "         v" << std::endl;
 		outfile << "        >X<" << std::endl;
@@ -76,5 +76,3 @@ void	ShrubberyCreationForm::execute(Bureaucrat const& executor) const
 		outfile.close();
 	}
 }
-
-
