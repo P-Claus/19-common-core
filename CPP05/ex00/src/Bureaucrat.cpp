@@ -39,7 +39,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 	else if (grade > 150)
 		throw GradeTooLowException();
 	else
-		std::cout << "String and int constructor has been called" << std::endl;
+		std::cout << "Full parameter constructor has been called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other): _name(other.getName() + "_copy"), _grade(other._grade)

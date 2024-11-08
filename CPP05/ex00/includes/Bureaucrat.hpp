@@ -30,7 +30,7 @@ class	Bureaucrat
 		int					getGrade(void);
 
 		//change grade
-		void				incrementGrade(int	grade);
+		void				incrementGrade(int grade);
 		void				decrementGrade(int grade);
 
 	class GradeTooHighException : public std::exception
