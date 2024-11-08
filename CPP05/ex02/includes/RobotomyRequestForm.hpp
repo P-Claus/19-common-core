@@ -4,10 +4,8 @@
 #include <ostream>
 #include <string>
 #include <iostream>
-#include <stdexcept>
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
-#include <fstream>
 
 class RobotomyRequestForm : public AForm
 {

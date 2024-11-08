@@ -47,29 +47,9 @@ int	main(void)
 		Jim.executeForm(presiCopy);
 	}
 
-	catch (const Bureaucrat::GradeTooHighException& e)
+	catch (std::exception& e)
 	{
-		std::cout << e.what() << std::endl;
-	}
-	catch (const Bureaucrat::GradeTooLowException& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	catch (const AForm::GradeTooHighException& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	catch (const AForm::GradeTooLowException& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	catch (const AForm::FormNotSignedException& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	catch(const AForm::FormAlreadySignedException& e)
-	{
-		std::cout << e.what() << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 
 }
