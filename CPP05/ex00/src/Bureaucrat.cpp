@@ -3,12 +3,12 @@
 /*	EXCEPTIONS	*/
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("The grade you have entered is too high");
+	return ("The grade is too high");
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("The grade you have entered is too low");
+	return ("The grade is too low");
 }
 
 /*	CONSTRUCTORS	*/

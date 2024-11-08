@@ -26,14 +26,8 @@ int	main(void)
 		//std::cout << Amy << std::endl;
 
 	}
-	catch (const Bureaucrat::GradeTooHighException& e)
+	catch (std::exception & e)
 	{
 		std::cout << e.what() << std::endl;
 	}
-	catch (const Bureaucrat::GradeTooLowException& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-
-
 }
