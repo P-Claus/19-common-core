@@ -1,17 +1,11 @@
 version: '3.9'
 
 services:
-
-  mariadb:
-    build:
-      context: ./mariadb
-      dockerfile: Dockerfile
-    image: custom-mariadb-image
-    restart: always
-    ports: 
-      - "3306:3306"
-    volumes:
-      - mariadb-volume:/var/lib/mysql
-
-volumes:
-  mariadb-volume:
+    nginx:
+        build: ./nginx
+        ports:
+            - 443:443
+        volumes:
+            - ./nginx:/etc/nginx/conf.d
+            - ./nginx/tools/ssl:/etc/ssl
+            - ./nginx/index.html:/usr/share/nginx/html/index.html
