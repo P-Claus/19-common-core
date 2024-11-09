@@ -3,9 +3,32 @@ version: '3.9'
 services:
     nginx:
         build: ./nginx
+        container_name: nginx
+        expose:
+            - 443
         ports:
             - 443:443
         volumes:
-            - ./nginx:/etc/nginx/conf.d
             - ./nginx/tools/ssl:/etc/ssl
-            - ./nginx/index.html:/usr/share/nginx/html/index.html
+            - wordpress_data:/var/www/html
+        depends_on:
+            - wordpress
+        networks:
+            - inception-network
+
+    wordpress:
+        build: ./wordpress
+        container_name: wordpress
+        expose:
+            - 9000
+        volumes:
+            - wordpress_data:/var/www/html
+        networks:
+            - inception-network
+
+volumes:
+    wordpress_data:
+
+networks:
+    inception-network:
+        driver: bridge
