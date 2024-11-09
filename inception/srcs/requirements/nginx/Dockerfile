@@ -1,13 +1,17 @@
 FROM debian:11
 
-RUN apt-get update && apt-get install -y --no-install-recommends nginx \
+RUN apt-get update && apt-get install -y --no-install-recommends nginx openssl \
 	&& rm -rf /var/lib/apt/lists/*
 
-COPY nginx.conf /etc/nginx/nginx.conf
+RUN mkdir -p /etc/nginx/ssl
 
+COPY ../tools/ssl/example.crt /etc/nginx/ssl/example.crt
+COPY ../tools/ssl/example.key /etc/nginx/ssl/example.key
+
+COPY nginx.conf /etc/nginx/nginx.conf
 COPY index.html /usr/share/nginx/html/index.html
 
-EXPOSE 80
+EXPOSE 443
 
 CMD ["nginx", "-g", "daemon off;"]
 
