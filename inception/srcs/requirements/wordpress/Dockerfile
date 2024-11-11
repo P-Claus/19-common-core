@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends php-mysql php-f
 
 RUN mkdir -p /run/php /var/www/html
 
-RUN wget https://wordpress.org/wordpress-6.5.5.zip -O /tmp/wordpress.zip && \
+RUN wget https://wordpress.org/wordpress-6.0.9.zip -O /tmp/wordpress.zip && \
     unzip /tmp/wordpress.zip -d /var/www/html && \
     rm /tmp/wordpress.zip
 

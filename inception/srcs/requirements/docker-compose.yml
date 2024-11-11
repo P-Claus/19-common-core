@@ -1,13 +1,9 @@
-version: '3.9'
-
 services:
     nginx:
         build: ./nginx
         container_name: nginx
-        expose:
-            - 443
         ports:
-            - 443:443
+            - '443:443'
         volumes:
             - ./nginx/tools/ssl:/etc/ssl
             - wordpress_data:/var/www/html
@@ -20,14 +16,38 @@ services:
         build: ./wordpress
         container_name: wordpress
         expose:
-            - 9000
+            - '9000'
         volumes:
             - wordpress_data:/var/www/html
         networks:
             - inception-network
+        depends_on:
+            - mariadb
+        environment:
+            - WORDPRESS_DB_HOST=mariadb
+            - WORDPRESS_DB_USER=pclaus
+            - WORDPRESS_DB_PASSWORD=pclaus
+            - WORDPRESS_DB_NAME=mariadb_db
+
+    mariadb:
+        build: ./mariadb
+        container_name: mariadb
+        # image: mariadb
+        expose:
+            - '3306'
+        volumes:
+            - mariadb_data:/var/lib/mysql
+        networks:
+            - inception-network
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: mariadb_db
+            MYSQL_USER: pclaus
+            MYSQL_PASSWORD: pclaus
 
 volumes:
     wordpress_data:
+    mariadb_data:
 
 networks:
     inception-network:
