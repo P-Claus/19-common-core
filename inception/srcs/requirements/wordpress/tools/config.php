@@ -1,4 +1,6 @@
 <?php
+define('WPLANG', 'en_US');
+
 define('DB_NAME', 'mariadb_db'); // The name of the database for WordPress
 define('DB_USER', 'pclaus');      // Your database username
 define('DB_PASSWORD', 'pclaus');  // Your database password
@@ -7,8 +9,8 @@ define('DB_CHARSET', 'utf8mb4');  // Database charset
 define('DB_COLLATE', '');         // Database collation (empty is default)
 
 // ** WordPress site and home URL (Important for Nginx and SSL)** //
-//define('WP_HOME', 'https://yourdomain.com');  // The home URL of your WordPress site (use HTTPS)
-//define('WP_SITEURL', 'https://yourdomain.com'); // The URL to the WordPress core (use HTTPS)
+define('WP_HOME', 'https://pclaus.19.be');  // The home URL of your WordPress site (use HTTPS)
+define('WP_SITEURL', 'https://pclaus.19.be'); // The URL to the WordPress core (use HTTPS)
 
 define( 'AUTH_KEY',         'A5B+TbRpe>zVFLDiP~E@|Zw<,?@_`P<?hKFWB`{!`=Qh@EY} WR@2Jbv(foc-sy_' );
 define( 'SECURE_AUTH_KEY',  'k-a6H8_8HE,Rz,,(I!@fa)&mh+stSN$rR:$=QM+ji]w!kQitNDhQoV?]qWEH3||O' );
@@ -29,9 +31,8 @@ define('WP_DEBUG_LOG', true);
 define('WP_DEBUG_DISPLAY', true);
 
 define('WP_CONTENT_DIR', '/var/www/html/wp-content');
-define('WP_CONTENT_URL', 'https://yourdomain.com/wp-content');
+define('WP_CONTENT_URL', 'https://pclaus.19.be/wp-content');
 
-define('WPLANG', 'en_US');
 
 if ( ! defined( 'ABSPATH' ) ) {
     define( 'ABSPATH', dirname( __FILE__ ) . '/' );
