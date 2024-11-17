@@ -1,13 +1,9 @@
 #!/bin/bash
 
-set -e
-
-# Ensure the database is ready before proceeding
-# Initialize a counter to track retries
 RETRY_COUNT=0
-MAX_RETRIES=0 # Set this to a non-zero value if you want to limit retries
+MAX_RETRIES=5
 
-while true; do
+while [ "$RETRY_COUNT" -lt "$MAX_RETRIES" ]; do
     if mysql -h mariadb -u pclaus -ppclaus -e "USE mariadb_db;" > /dev/null 2>&1; then
         echo "Database is ready."
         break
@@ -15,15 +11,8 @@ while true; do
         echo "Attempt $((++RETRY_COUNT)): Database is not ready yet. Retrying in 5 seconds..."
         sleep 5
     fi
-    
-    # Uncomment this block if you want to limit the number of retries
-    # if [ $MAX_RETRIES -ne 0 ] && [ $RETRY_COUNT -ge $MAX_RETRIES ]; then
-    #     echo "Database connection failed after $MAX_RETRIES attempts. Exiting..."
-    #     exit 1
-    # fi
 done
 
-# Check if WordPress is already installed
 if ! wp core is-installed --allow-root --path=/var/www/html; then
     echo "Installing WordPress..."
     wp core install \
@@ -39,8 +28,13 @@ else
     echo "WordPress is already installed."
 fi
 
-wp user create Bob bob@gmail.com --role=author --user_pass=bob --allow-root --path=/var/www/html
+if ! wp user exists Bob --allow-root --path=/var/www/html; then
+	echo "Adding user...."
+	wp user create Bob bob@gmail.com --role=author --user_pass=bob --allow-root --path=/var/www/html
+	echo "User Bob added."
+else
+	echo "User Bob already exists"
+fi
 
-# Start PHP-FPM
-php-fpm7.4 -F
-
+echo "Starting PHP-FPM..."
+exec php-fpm7.4 -F
