@@ -8,6 +8,7 @@ int	main(void)
 	dataObj.nb = 19;
 
 	std::cout << "The original address of the data object is: " << &dataObj << std::endl;
+	std::cout << "The original nb of the data object is: " << dataObj.nb << std::endl;
 
 	uintptr_t uintPtr = Serializer::serialize(&dataObj);
 
@@ -17,4 +18,5 @@ int	main(void)
 	Data *dataReturnObj = Serializer::deserialize(uintPtr);	
 
 	std::cout << "The address after deserialize is: " << dataReturnObj << std::endl;
+	std::cout << "The data after deserialize is: " << dataReturnObj->nb << std::endl;
 }
