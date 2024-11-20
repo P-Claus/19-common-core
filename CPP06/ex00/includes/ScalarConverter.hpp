@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 #include <stdexcept>
-#include <limits>
+#include <climits>
 #include <iomanip>
 #include <sstream>
 
