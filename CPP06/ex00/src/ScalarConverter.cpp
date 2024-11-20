@@ -1,5 +1,4 @@
 #include "../includes/ScalarConverter.hpp"
-#include <climits>
 
 /*	HELPER FUNCTIONS	*/
 bool	isChar(std::string& string)
