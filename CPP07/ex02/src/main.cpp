@@ -208,58 +208,5 @@ int	main(void)
 
 	for (int i = 0; i < assignmentIntArray.size(); i++)
 		std::cout << "[" << i << "] -> " << assignmentIntArray.getData(i) << std::endl; 
-
-/*
-
-
-	//Array<char> newChar;
-	//Array<char> newCharParam(7);
-
-
-	std::cout << "-------------------------------------------" << std::endl;
-	//copy assignment
-
-
-	copyIntArray.printContent();
-	try
-	{
-		copyIntArray.printContent();
-	}
-	catch (const std::exception& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	
-	intArray.printContent();
-
-
-	std::cout << "-------------------------------------------" << std::endl;
-
-	Array<int> assignmentArray(10);
-
-	assignmentArray = copyIntArray;
-
-	assignmentArray.printContent();
-	try
-	{
-		assignmentArray.setData(0, 77);
-		assignmentArray.setData(1, 78);
-		assignmentArray.setData(2, 79);
-		assignmentArray.setData(3, 80);
-		assignmentArray.setData(4, 81);
-		assignmentArray.setData(5, 82);
-		assignmentArray.setData(6, 83);
-		assignmentArray.setData(7, 84);
-		assignmentArray.setData(8, 85);
-		assignmentArray.setData(9, 86);
-		assignmentArray.printContent();
-		copyIntArray.printContent();
-	}
-	catch (const std::exception& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	
-*/
 }
 
