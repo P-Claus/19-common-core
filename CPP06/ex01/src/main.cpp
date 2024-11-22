@@ -13,7 +13,7 @@ int	main(void)
 	uintptr_t uintPtr = Serializer::serialize(&dataObj);
 
 	std::cout << "The uint after serialize is: " << uintPtr << std::endl;
-	std::cout << "The address of int after serialize is: " << &uintPtr << std::endl;
+	std::cout << "The address of uint after serialize is: " << &uintPtr << std::endl;
 
 	Data *dataReturnObj = Serializer::deserialize(uintPtr);	
 
