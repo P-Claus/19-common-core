@@ -68,22 +68,15 @@ void sort(T& numbers)
 }
 
 template <typename T>
-void	putDataInContainer(std::string givenString, T& numbers)
+void	putDataInContainer(char ** argv, T& numbers)
 {
-	std::string 	delim = " ";  
-	size_t 			pos = 0;  
-	std::string 	token;  
-	
-	while ((pos = givenString.find(delim)) != std::string::npos)  
+
+	for (int i = 1; argv[i]; i++)
 	{
-		token = givenString.substr(0, pos);
+		std::string token = argv[i];
 		intError(token);
 		numbers.push_back(handle_int(token));
-		givenString.erase(0, pos + delim.length());
 	}
-	token = givenString.substr(0, pos);
-	intError(token);
-	numbers.push_back(handle_int(token));
 }
 
 #endif
