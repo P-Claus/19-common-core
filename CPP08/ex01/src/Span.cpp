@@ -7,20 +7,17 @@ Span::Span()
 
 Span::Span(size_t N): _capacity(N)
 {
-	std::cout << "The parameter constructor has been called" << std::endl;;
 	_intSpan.reserve(N);
 }
 
 /*	COPY CONSTRUCTOR	*/
 Span::Span(const Span& other): _intSpan(other._intSpan), _capacity(other._capacity)
 {
-	std::cout << "The copy constructor has been called" << std::endl;
 }
 
 /*	COPY ASSIGNMENT OVERLOAD	*/
 Span& Span::operator=(const Span& rhs)
 {
-	std::cout << "Copy assignment operator has been called" << std::endl;
 	if (this != &rhs)
 	{
 		_intSpan = rhs._intSpan;
@@ -32,7 +29,6 @@ Span& Span::operator=(const Span& rhs)
 /*	DESTRUCTOR	*/
 Span::~Span()
 {
-	std::cout << "The destructor has been called" << std::endl;
 }
 
 /*	MISC.	*/

@@ -23,20 +23,25 @@ int	main(void)
 		sp.addNumber(9);
 		sp.addNumber(11);
 
-		sp.printContent();
+		//sp.printContent();
 		
-		std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
-		std::cout << "Longest span: " << sp.longestSpan() << std::endl;
+		//std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
+		//std::cout << "Longest span: " << sp.longestSpan() << std::endl;
 
-		std::cout << "------- LARGE --------" << std::endl;
+		//std::cout << "------- LARGE --------" << std::endl;
+
+		std::cout << sp.shortestSpan() << std::endl;
+		std::cout << sp.longestSpan() << std::endl;
 
 		largeSpan.addMany();
 		
-		largeSpan.printContent();
+		//largeSpan.printContent();
 
-		std::cout << "Shortest span: " << largeSpan.shortestSpan() << std::endl;
-		std::cout << "Longest span: " << largeSpan.longestSpan() << std::endl;
+		//std::cout << "Shortest span: " << largeSpan.shortestSpan() << std::endl;
+		//std::cout << "Longest span: " << largeSpan.longestSpan() << std::endl;
 
+		std::cout << largeSpan.shortestSpan() << std::endl;
+		std::cout << largeSpan.longestSpan() << std::endl;
 
 
 	} catch (const std::exception& e) {
