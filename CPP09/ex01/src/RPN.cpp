@@ -52,7 +52,7 @@ void	doCalculation(std::stack<int>& numbers, std::string token)
 
 void	operatorCheckEnd(std::string string)
 {
-	if (string.back()!= '+' && string.back() != '-' && string.back() != '*' && string.back() != '/')
+	if (string[string.size() - 1] != '+' && string[string.size() -1] != '-' && string[string.size() - 1] != '*' && string[string.size() - 1] != '/')
 		exit_handler("Error");
 }
 
