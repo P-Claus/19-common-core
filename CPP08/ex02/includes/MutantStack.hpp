@@ -22,14 +22,13 @@ class MutantStack : public std::stack<T, std::vector<T> >
 		MutantStack(const MutantStack& other)
 		{
 			std::cout << "The copy constructor has been called" << std::endl;
-			(void)other;
+			(*this) = other;
 		}
 
 		//copy assignment operator overload
 		MutantStack& operator=(const MutantStack& rhs)
 		{
 			std::cout << "The copy assignment overload function has been called" << std::endl;
-			(void)rhs;
 			return (*this);
 		}
 
