@@ -29,6 +29,7 @@ void	printVector(std::vector<int>& numbersVector)
 	std::cout << std::endl;
 }
 
+/*
 void	printDeque(std::deque<int>& numbersDeque)
 {
 	std::deque<int>::iterator	it;
@@ -39,7 +40,23 @@ void	printDeque(std::deque<int>& numbersDeque)
 		std::cout << *it << " ";
 	std::cout << std::endl;
 }
+*/
 
+void sortVector(std::vector & numbersVector)
+{
+
+    int length = numbersVector.size();
+    if (length <= 1) return;
+
+	std::cout << "The length of the list is: " << length << std::endl;
+
+	int half = length /2;
+	std::cout << "The half is: " << half << std::endl;
+
+	T leftPart;
+	T rightPart;
+
+}
 bool	isInteger(std::string& string)
 {
 	std::stringstream 	ss;

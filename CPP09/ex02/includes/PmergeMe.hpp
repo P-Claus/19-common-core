@@ -17,6 +17,7 @@ void	printVector(std::vector<int>& numbersVector);
 void	printDeque(std::deque<int>& numbersDeque);
 bool	isInteger(std::string& string);
 int		exit_handler(std::string errorMessage);
+void	sortVector(std::vector<int> &numbers);
 
 template <typename T>
 void insertElement(T& sortedList, int element)
@@ -26,18 +27,30 @@ void insertElement(T& sortedList, int element)
 }
 
 template <typename T>
-void mergeSortedData(T& smallerList, T& largerList, T& sortedVector)
+void mergeSortedData(T& smallerList, T& largerList, T& sortedContainer)
 {
-    sortedVector = smallerList;
+    sortedContainer = smallerList;
     for (typename T::iterator it = largerList.begin(); it != largerList.end(); ++it)
-        insertElement(sortedVector, *it);
+        insertElement(sortedContainer, *it);
 }
 
+/*
 template <typename T>
 void sort(T& numbers)
 {
     int length = numbers.size();
     if (length <= 1) return;
+
+	std::cout << "The length of the list is: " << length << std::endl;
+
+	int half = length /2;
+	std::cout << "The half is: " << half << std::endl;
+
+	T leftPart;
+	T rightPart;
+
+
+
 
     T smallerElements;
 	T largerElements;
@@ -58,14 +71,17 @@ void sort(T& numbers)
             smallerElements.push_back(numbers[i]);
         }
     }
+	std::cout << "The large elements is: " << largerElements.front() << std::endl;
+	std::cout << "The small elements is: " << smallerElements.front() << std::endl;
     sort(smallerElements);
 
     T sortedResult;
 
     mergeSortedData(smallerElements, largerElements, sortedResult);
 
-    numbers = sortedResult;
+	numbers = sortedResult;
 }
+*/
 
 template <typename T>
 void	putDataInContainer(char ** argv, T& numbers)
