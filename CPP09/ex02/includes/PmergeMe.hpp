@@ -17,7 +17,10 @@ void	printVector(std::vector<int>& numbersVector);
 void	printDeque(std::deque<int>& numbersDeque);
 bool	isInteger(std::string& string);
 int		exit_handler(std::string errorMessage);
-std::vector <int> &	sortVector(std::vector<int> &numbers);
+void	 sortVector(std::vector<int> &numbers);
+void 	groupInPairs(std::vector <int> & numbers);
+void workWithMainChain(std::vector <int> &numbersVector);
+void handleStruggler(std::vector<int> &numbersVector, int struggler);
 
 template <typename T>
 void insertElement(T& sortedList, int element)

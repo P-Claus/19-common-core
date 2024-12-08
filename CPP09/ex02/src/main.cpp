@@ -15,11 +15,26 @@ int	main(int argc, char **argv)
 	//I need to pass the argv and add the numbers from index 1 to the end
 	putDataInContainer(argv, numbersVector);
 	printVectorBefore(numbersVector);
-	sortVector(numbersVector);
+	groupInPairs(numbersVector);
+	printVector(numbersVector);
+	if (numbersVector.size() % 2 != 0)
+	{
+		int leftOver = numbersVector.back();
+		numbersVector.pop_back();
+		sortVector(numbersVector);
+		workWithMainChain(numbersVector);
+		handleStruggler(numbersVector, leftOver);
+	}
+	else
+	{
+		sortVector(numbersVector);
+		workWithMainChain(numbersVector);
+	}
+		
 	printVector(numbersVector);
 	clock_gettime(CLOCK_REALTIME, &end);
-	double duration = (end.tv_sec - start.tv_sec) + (end.tv_nsec - start.tv_nsec) / 1e3;
-	std::cout << "Sorting a vector of [" << numbersVector.size() << "] elements took " << duration << " milliseconds." << std::endl;
+	double duration = (end.tv_sec - start.tv_sec) + (end.tv_nsec - start.tv_nsec) / 1e6;
+	std::cout << "Sorting a vector of [" << numbersVector.size() << "] elements took " << duration << " microseconds." << std::endl;
 
 	/*
 	clock_gettime(CLOCK_REALTIME, &start);
