@@ -29,7 +29,7 @@ int	main(void)
 	std::cout << "The size of the stack is: " << mstack.size() << std::endl;
 
 	mstack.push(3);
-	mstack.push(5);
+	mstack.push(6);
 	mstack.push(727);
 	mstack.push(19);
 	mstack.push(0);

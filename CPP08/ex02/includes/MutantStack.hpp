@@ -29,7 +29,8 @@ class MutantStack : public std::stack<T, std::vector<T> >
 		MutantStack& operator=(const MutantStack& rhs)
 		{
 			std::cout << "The copy assignment overload function has been called" << std::endl;
-			return (*this);
+			if (this != &rhs)
+				return (*this);
 		}
 
 		//destructor
