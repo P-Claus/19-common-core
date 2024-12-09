@@ -13,7 +13,7 @@ int generateRandomNumber(int min, int max)
 int	main(void)
 {
 	Span sp = Span(5);
-	Span largeSpan = Span(10);
+	Span largeSpan = Span(10000);
 	
 	try {
 
@@ -23,25 +23,19 @@ int	main(void)
 		sp.addNumber(9);
 		sp.addNumber(11);
 
-		//sp.printContent();
+		sp.printContent();
 		
-		//std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
-		//std::cout << "Longest span: " << sp.longestSpan() << std::endl;
+		std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
+		std::cout << "Longest span: " << sp.longestSpan() << std::endl;
 
-		//std::cout << "------- LARGE --------" << std::endl;
-
-		std::cout << sp.shortestSpan() << std::endl;
-		std::cout << sp.longestSpan() << std::endl;
+		std::cout << "------- LARGE --------" << std::endl;
 
 		largeSpan.addMany();
 		
 		//largeSpan.printContent();
 
-		//std::cout << "Shortest span: " << largeSpan.shortestSpan() << std::endl;
-		//std::cout << "Longest span: " << largeSpan.longestSpan() << std::endl;
-
-		std::cout << largeSpan.shortestSpan() << std::endl;
-		std::cout << largeSpan.longestSpan() << std::endl;
+		std::cout << "The shortest span is: " << largeSpan.shortestSpan() << std::endl;
+		std::cout << "The longest span is: " << largeSpan.longestSpan() << std::endl;
 
 
 	} catch (const std::exception& e) {
