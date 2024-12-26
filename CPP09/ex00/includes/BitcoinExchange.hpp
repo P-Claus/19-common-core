@@ -18,7 +18,7 @@ class DateAndValue
 		//constructor
 		DateAndValue();
 
-		//parameter cosntructor
+		//parameter constructor 
 		DateAndValue(std::string date);
 
 		//copy constructor
