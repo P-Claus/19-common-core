@@ -26,21 +26,6 @@ void	handleVector(std::vector<int> &numbersVector);
 void handleDeque(std::deque<int> &numbersDeque);
 
 template <typename T>
-void insertElement(T& sortedList, int element)
-{
-	typename T::iterator it = std::lower_bound(sortedList.begin(), sortedList.end(), element);
-    sortedList.insert(it, element);
-}
-
-template <typename T>
-void mergeSortedData(T& smallerList, T& largerList, T& sortedContainer)
-{
-    sortedContainer = smallerList;
-    for (typename T::iterator it = largerList.begin(); it != largerList.end(); ++it)
-        insertElement(sortedContainer, *it);
-}
-
-template <typename T>
 void	putDataInContainer(char ** argv, T& numbers)
 {
 

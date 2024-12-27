@@ -153,7 +153,6 @@ void vectorFordJohnsonSort(std::vector <int> &numbersVector)
 	for (int i = 3; i < 17; i++)
 		jacobStahl[i] = jacobStahl[i - 1] + (2 * jacobStahl[i - 2]);
 
-	//This is where the magic happens 
 	for (long unsigned int i = 3; !pendingChain.empty(); i++)
 	{
 		int amountOfPushes = jacobStahl[i] - jacobStahl[i - 1];
