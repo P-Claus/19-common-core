@@ -22,10 +22,6 @@ RUN wp core download --path=/var/www/html --allow-root
 RUN sed -i 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/' /etc/php/7.4/fpm/php.ini && \
     echo "listen = 9000" >> /etc/php/7.4/fpm/pool.d/www.conf
 
-RUN chown -R www-data:www-data /var/www/html
-
-
-
 RUN chown -R www-data:www-data /var/www/html && \
     chmod -R 755 /var/www/html
 

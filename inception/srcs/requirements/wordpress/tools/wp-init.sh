@@ -13,13 +13,14 @@ while [ "$RETRY_COUNT" -lt "$MAX_RETRIES" ]; do
     fi
 done
 
+
 if ! wp core is-installed --allow-root --path=/var/www/html; then
     echo "Installing WordPress..."
     wp core install \
         --url="http://pclaus.19.be" \
         --title="Inception" \
         --admin_user="pclaus" \
-        --admin_password="pclaus" \
+        --admin_password="$WORDPRESS_ADMIN_PASSWORD" \
         --admin_email="email@example.com" \
         --allow-root \
         --path=/var/www/html
@@ -29,8 +30,12 @@ else
 fi
 
 if ! wp user exists Bob --allow-root --path=/var/www/html; then
-	echo "Adding user...."
-	wp user create Bob bob@gmail.com --role=author --user_pass=bob --allow-root --path=/var/www/html
+	echo "Adding user...." 
+	wp user create Bob bob@gmail.com \
+    --role=author \
+    --user_pass="$WORDPRESS_BOB_PASSWORD" \
+    --allow-root \
+    --path=/var/www/html
 	echo "User Bob added."
 else
 	echo "User Bob already exists"
