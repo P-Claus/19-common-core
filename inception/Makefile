@@ -1,4 +1,4 @@
-COMPOSE_FILE = srcs/requirements/docker-compose.yml
+COMPOSE_FILE = ./srcs/requirements/docker-compose.yml
 DOCKER_COMPOSE = docker compose
 
 help:

@@ -11,6 +11,7 @@ services:
             - wordpress
         networks:
             - inception-network
+        restart: on-failure
 
     wordpress:
         build: ./wordpress
@@ -37,6 +38,7 @@ services:
             - MYSQL_USER=$MYSQL_USER
             - MYSQL_PASSWORD=$MYSQL_PASSWORD
             - MYSQL_DATABASE=$MYSQL_DATABASE
+        restart: on-failure
 
     mariadb:
         build: ./mariadb
@@ -47,11 +49,7 @@ services:
             - mariadb_data:/var/lib/mysql
         networks:
             - inception-network
-        environment:
-            - MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
-            - MYSQL_DATABASE=$MYSQL_DATABASE 
-            - MYSQL_USER=$MYSQL_USER
-            - MYSQL_PASSWORD=$MYSQL_PASSWORD 
+        restart: on-failure
 
 volumes:
     wordpress_data:
