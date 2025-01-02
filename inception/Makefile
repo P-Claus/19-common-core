@@ -11,7 +11,7 @@ help:
 	@echo "  clean    	- Remove stopped containers, networks and volumes"
 
 create_dirs:
-	@echo "Creating necessary directories if they don't exist..."
+	@echo "Creating necessary directories if they don't exist"
 	@mkdir -p /home/pclaus/data/wordpress
 	@mkdir -p /home/pclaus/data/mariadb
 

@@ -8,8 +8,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends php-mysql php-f
 
 RUN mkdir -p /run/php /var/www/html
 
-COPY tools/config.php /var/www/html/wp-config.php
-
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
     chmod +x wp-cli.phar && \
     mv wp-cli.phar /usr/local/bin/wp
