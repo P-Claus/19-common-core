@@ -21,3 +21,13 @@ This project highlights problem-solving skills and the ability to write robust c
 Minitalk is a simple client-server messaging system implemented in C using UNIX signals. The project focuses on sending and receiving messages between processes, using signals like SIGUSR1 and SIGUSR2 to transmit data one bit at a time.
 
 This project demonstrates proficiency in interprocess communication, bitwise operations, and signal handling, showcasing the ability to work with low-level system programming concepts.
+
+## push_swap
+Push Swap is an algorithmic project in C that requires sorting a stack of numbers using two stacks and a predefined set of operations. The goal is to implement efficient sorting algorithms and minimize the total number of moves.
+
+It emphasizes algorithm design, optimization, and understanding data structures, demonstrating problem-solving skills and the ability to write efficient and clean code.
+
+## FdF
+FDF is a 3D wireframe visualization program in C that reads data from a file and displays a graphical representation using isometric projection. Built using the MinilibX graphics library, the project involves rendering, event handling, and creating smooth animations.
+
+This project showcases skills in graphical programming, mathematical transformations, and implementing interactive interfaces, providing insight into rendering techniques and low-level graphics handling.
