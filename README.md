@@ -2,7 +2,7 @@
 
 An overview of the different projects in the common core at Campus 19 (42).
 
-## libft <img src="https://img.shields.io/github/languages/top/P-Claus/19-common-core/ft_libft" />
+## libft [![Language](https://skillicons.dev/icons?i=c)]
 Libft is a custom C library that reimplements essential functions from the standard library, along with additional utilities for string manipulation, memory handling, and linked lists. The project focuses on mastering fundamental programming concepts like pointer arithmetic, memory allocation, and algorithm design, while building reusable and efficient code.
 
 This library serves as a foundation for future projects, ensuring a strong grasp of low-level programming in C. By creating these tools from scratch, it demonstrates proficiency in writing robust, modular, and well-documented code.
