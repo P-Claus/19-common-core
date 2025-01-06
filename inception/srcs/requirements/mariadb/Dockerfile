@@ -11,7 +11,6 @@ COPY mariadb.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
 
 COPY init.sql /docker-entrypoint-initdb.d
 
-CMD ["bash", "-c", "mysqld --datadir=/var/lib/mysql & \
-    sleep 3 && \
-    mysql -u root -proot < /docker-entrypoint-initdb.d/init.sql && \
-    wait"]
+RUN mysql_install_db --user=mysql --datadir=/var/lib/mysql
+
+CMD ["mysqld", "--datadir=/var/lib/mysql", "--init-file=/docker-entrypoint-initdb.d/init.sql"]

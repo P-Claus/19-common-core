@@ -1,7 +1,6 @@
-COMPOSE_FILE = srcs/requirements/docker-compose.yml
+COMPOSE_FILE = ./srcs/requirements/docker-compose.yml
 DOCKER_COMPOSE = docker compose
 
-.PHONY: help
 help:
 	@echo "Available targets:"
 	@echo "  up      	- Start services and always build images"
@@ -11,8 +10,12 @@ help:
 	@echo "  ps       	- List running containers"
 	@echo "  clean    	- Remove stopped containers, networks and volumes"
 
-.PHOMY: up
-up:
+create_dirs:
+	@echo "Creating necessary directories if they don't exist"
+	@mkdir -p /home/pclaus/data/wordpress
+	@mkdir -p /home/pclaus/data/mariadb
+
+up: create_dirs
 	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) up --build
 
 down:
