@@ -31,3 +31,19 @@ It emphasizes algorithm design, optimization, and understanding data structures,
 FDF is a 3D wireframe visualization program in C that reads data from a file and displays a graphical representation using isometric projection. Built using the MinilibX graphics library, the project involves rendering, event handling, and creating smooth animations.
 
 This project showcases skills in graphical programming, mathematical transformations, and implementing interactive interfaces, providing insight into rendering techniques and low-level graphics handling.
+
+## Philosophers
+Philosophers is a simulation of the classic dining philosophers problem in C, designed to explore concurrency, thread synchronization, and resource management. Using threads and mutexes, the project tackles challenges like avoiding deadlocks and race conditions.
+
+This project demonstrates a strong understanding of multithreading, synchronization primitives, and the complexities of parallel programming, essential skills for developing robust and efficient software.
+
+## minishell
+Minishell is a minimalist shell implementation in C that supports command execution, piping, redirections, and environment variable management. It involves parsing user input, managing processes, and implementing built-in shell commands.
+
+This project showcases expertise in system programming, process management, and the intricacies of UNIX system calls, demonstrating the ability to create scalable and functional command-line applications.
+
+## miniRT
+
+## CPP Modules
+
+## Inception
