@@ -43,7 +43,16 @@ Minishell is a minimalist shell implementation in C that supports command execut
 This project showcases expertise in system programming, process management, and the intricacies of UNIX system calls, demonstrating the ability to create scalable and functional command-line applications.
 
 ## miniRT
+MiniRT is a ray tracer in C that renders 3D scenes with basic geometric shapes (spheres, planes, and cylinders) and supports lighting effects like shadows, reflections, and ambient light. Built from scratch, the project involves implementing ray-object intersection algorithms and simulating light behavior.
+
+This project demonstrates a strong grasp of mathematical concepts like vectors and linear algebra, as well as an understanding of rendering techniques and efficient computational algorithms used in computer graphics.
 
 ## CPP Modules
+The CPP Modules series is a set of projects designed to introduce and solidify core concepts of C++ programming, focusing on object-oriented design, memory management, and advanced features of the language. Each module builds upon the previous, covering topics such as inheritance, polymorphism, templates, and exception handling.
+
+These projects demonstrate a deep understanding of C++ principles, including writing clean, reusable, and efficient code, and provide hands-on experience in designing complex systems using modern programming paradigms.
 
 ## Inception
+Inception is a systems project that involves setting up a multi-container application using Docker Compose. The project requires configuring Docker containers for services such as a web server (Nginx), a database (MariaDB), and a WordPress instance, all while ensuring proper networking and data persistence.
+
+This project demonstrates expertise in containerization, orchestration, and infrastructure-as-code principles, showcasing the ability to design scalable and modular environments for modern software development and deployment.
